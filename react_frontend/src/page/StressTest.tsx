@@ -16,7 +16,7 @@ const COLORS = [
     'amber',
 ];
 
-const cubeCount: number = 1000
+const cubeCount: number = 10
 export const AnimatedCubesContainer = () => {
     return (
         <View>
