@@ -1,0 +1,22 @@
+name: React_Native
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  react_native_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out git repo
+        uses: actions/checkout@v3
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 1.8
+      - uses: actions/setup-node@master
+
+      - name: Install modules
+        working-directory: ./react_frontend
+        run: |
+          yarn install
