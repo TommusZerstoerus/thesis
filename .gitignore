@@ -23,5 +23,11 @@ doc/api/
 *.js.deps
 *.js.map
 
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
 .flutter-plugins
 .flutter-plugins-dependencies
