@@ -1,0 +1,29 @@
+# Methoden der Softwareentwicklung
+
+Die Softwareentwicklung lässt sich in verschiedene Kategorien einteilen. Die Backend Entwicklung befasst sich mit der Serverseite einer Anwendung. Es werden Anfragen im HTTP Format an das Backend geschickt und dies verarbeitet die Anfrage und liefert die Antwort zurück. Datenbanken, Microservices und weitere diverse Funktionalitäten werden im Backend umgesetzt und sind dadurch strikt von dem Frontend getrennt. 
+
+### Maschinencode
+
+Das Frontend beschreibt den Teil einer Anwendung, welcher auf dem Endgerät läuft und dafür zuständig ist Eingaben zu verwalten oder Daten vom Backend darzustellen. Die Benutzeroberfläche wird durch verschiedene Elemente repräsentiert. Diese Elemente dienen der Anzeige von Daten oder bieten dem Benutzer die Möglichkeit, mit der Schnittstelle zu interagieren. Das Frontend steht in dieser Arbeit ausschließlich im Vordergrund, da sich diese Arbeit mit diesem Bereich befasst.
+
+### Webbasierte Software (webseite oder pwa) - Javascript , React, Angular, Vue.js
+
+Die fundamentalste Möglichkeit, ein Frontend zu entwickeln, ist die webbasierte Programmierung. Hierbei werden mit Hilfe von HTML (Hyper Text Markup Language) Komponenten entwickelt, die in einer Struktur zu einer Oberfläche für den Benutzer angeordnet werden. Das entstandene HTML-Dokument kann von einem Webbrowser gelesen werden und interpretiert werden, wodurch der Webbrowser in der Lage ist, dieses HTML-Dokument darzustellen. HTML-Dateien beinhalten jedoch keine Logik, da diese dies aufgrund ihres Aufbaus nicht zulässt. Der Vorteil der webbasierten Entwicklung ist es, dass die Software auf jedem Endgerät, welches über einen Webbrowser verfügt, problemlos dargestellt werden kann. Die geltenden Kodierungskonventionen stellen sicher, dass es keine Inkonsistenzen bei der Definition von HTML-Dokumenten gibt und dass jeder Webbrowser die HTML-Dateien korrekt interpretieren kann. Um der entstandenen Benutzeroberfläche mit Funktion auszustatten, nutzt man JavaScript. JavaScript ist eine Programmiersprache, die ein Skript definiert, das in eine HTML-Datei eingebettet werden kann. Dadurch lässt sich die Benutzeroberfläche manipulieren oder Anfragen an das Backend senden. JavaScript hat die Besonderheit, dass das Skript erst bei der Laufzeit kompiliert wird, daraus resultieren dynamische Typen. 
+
+React, Angular, Vue.js - Erwähnung
+
+### Vorteile webbasierter Software
+
+- Funktioniert in jedem Webbrowser auf jedem Endgerät
+- Breit gefächertes Expertenwissen
+- Viele Frameworks und Bibliotheken erleichtern die Arbeit
+
+### Nachteile webbasierter Software
+
+- Kompilierung nur durch den Webbrowser
+- Fehlende Möglichkeit spezifische Funktionen des Endgeräts zu nutzen.
+- Geringere Perfomance
+- Fehlende Sicherheit durch sichtbaren Code
+
+Nativ - iOS (Swift) Android (Kotlin)
+Cross Platform - React Native oder Flutter
