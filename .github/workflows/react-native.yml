@@ -2,8 +2,9 @@ name: React_Native
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths:
+      - "react_frontend/**"
+      -
 jobs:
   react_native_test:
     runs-on: ubuntu-latest
