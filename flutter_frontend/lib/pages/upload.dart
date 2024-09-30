@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:file_picker/file_picker.dart';
 
 class UploadScreen extends StatefulWidget {
   const UploadScreen({super.key});
@@ -12,7 +14,8 @@ class UploadScreen extends StatefulWidget {
 }
 
 class _UploadScreenState extends State<UploadScreen> {
-  File? _image;
+  File? _image; // For Android/iOS
+  XFile? _webImage; // For Web
   String? _error;
   List<double> _results = [];
 
@@ -20,22 +23,42 @@ class _UploadScreenState extends State<UploadScreen> {
     final picker = ImagePicker();
 
     final startTime = DateTime.now();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    final endTime = DateTime.now();
 
-    if (pickedFile != null) {
-      final duration = endTime.difference(startTime).inMilliseconds.toDouble();
-
-      setState(() {
-        _image = File(pickedFile.path);
-        _results.insert(0, duration);
-        _error = null;
-      });
+    if (kIsWeb) {
+      // Web: Verwende file_picker zum Auswählen von Bildern
+      final result = await FilePicker.platform.pickFiles(type: FileType.image);
+      if (result != null && result.files.single.bytes != null) {
+        setState(() {
+          _webImage = XFile.fromData(result.files.single.bytes!,
+              name: result.files.single.name);
+          _error = null;
+        });
+      } else {
+        setState(() {
+          _error = 'Kein Bild ausgewählt.';
+        });
+      }
     } else {
-      setState(() {
-        _error = 'No image selected.';
-      });
+      // Android/iOS: Verwende image_picker
+      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+      if (pickedFile != null) {
+        setState(() {
+          _image = File(pickedFile.path);
+          _error = null;
+        });
+      } else {
+        setState(() {
+          _error = 'Kein Bild ausgewählt.';
+        });
+      }
     }
+
+    final endTime = DateTime.now();
+    final duration = endTime.difference(startTime).inMilliseconds.toDouble();
+    setState(() {
+      _results.insert(0, duration);
+    });
   }
 
   double _calculateMedian(List<double> arr) {
@@ -91,12 +114,19 @@ class _UploadScreenState extends State<UploadScreen> {
               onPressed: _pickImage,
               child: Text('Lade ein Bild hoch'),
             ),
-            if (_image != null)
+            if (!kIsWeb && _image != null)
               Container(
                 margin: EdgeInsets.only(top: 20),
                 width: 200,
                 height: 200,
                 child: Image.file(_image!),
+              ),
+            if (kIsWeb && _webImage != null)
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                width: 200,
+                height: 200,
+                child: Image.network(_webImage!.path),
               ),
             if (_error != null)
               Text(
