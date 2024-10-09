@@ -1,0 +1,30 @@
+\section{Flutter im Detail}
+Flutter ist ein von Google entwickeltes Cross-Platform-Framework. Es wurde erstmalig 2017 als Open-Source-Software veröffentlicht. Flutter nutzt eine eigene Architektur beim Aufbau der Software. Es werden Widgets genutzt, um Darstellung, Logik und Interaktionen innerhalb eines Objektes zu vereinen. Vorgefertigte Komponenten erleichtern den Entwicklungsprozess, indem oft genutzte Elemente, wie Buttons, Texte, Checkboxen usw., vordefiniert sind. Diese Komponenten orientieren sich in ihrem Design an den Richtlinien der jeweiligen Zielsysteme. Bei Android wird das Material-Design verwendet. Flutter nutzt als Programmiersprache \textit{Dart}, die entwickelt wurde, um eine Alternative zu JavaScript zu bieten.
+
+\vspace{0.5cm}
+
+Bei der Kompilierung ist das Ziel von Flutter, die bestmögliche Performance zu erzielen. Deshalb wird ein anderer Ansatz als bei React Native verwendet. Flutter kompiliert die Komponenten nicht zu nativen Komponenten, sondern zeichnet direkt jeden Pixel auf den Bildschirm des Endgeräts. Dadurch wird eine höhere Leistung erzielt und Flutter erhält große Kontrolle darüber, wie die Komponenten interagieren. Flutter verwendet \textit{Dart}, \textit{C} und \textit{C++}, die innerhalb der Dart Virtual Machine und der Grafik-Rendering-Engine genutzt werden.
+
+\vspace{0.5cm}
+
+Der kompilierte Code für die Grafik-Rendering-Engine wird bei Android mit dem NDK (\textit{Native Development Kit}) und bei iOS mit LLVM kompiliert. Anschließend wird die Dart VM mit \textit{Just-in-Time} (JIT) Kompilierung und eine VM mit \textit{Ahead-of-Time} (AOT) Kompilierung verwendet, um den Code in Maschinencode zu übersetzen. Die JIT-Kompilierung ermöglicht das Feature \textit{Hot Reload}, bei dem Änderungen im Quellcode kompiliert werden und in sehr kurzer Zeit in der Entwicklungsumgebung sichtbar sind. Die AOT-Kompilierung erstellt eine APK oder IPA, welche für die Veröffentlichung und Installation auf den jeweiligen Endgeräten genutzt werden kann.
+
+\vspace{0.5cm}
+
+\textit{Dart Web} ermöglicht die Kompilierung für das Web. Der Dart-Quellcode wird wahlweise in JavaScript oder WebAssembly übersetzt, wodurch er im Browser ausgeführt werden kann.
+
+\vspace{0.5cm}
+
+Die \textit{Dart SDK} stellt die nötigen Command-line-Tools zur Verfügung, um die Entwicklung zu erleichtern. Dazu gehört der \textit{Linter}, der \textit{Dart pub Package Manager} und viele weitere Funktionen.
+
+\vspace{0.5cm}
+
+Die nativen Funktionen des Endgeräts in Flutter werden über \textit{Method Channels} aufgerufen. Flutter selbst ist plattformunabhängig und bietet daher keinen direkten Zugriff auf system- oder gerätespezifische APIs. Um dennoch auf native Funktionen (wie z.B. die Kamera oder Galerie) zugreifen zu können, wird ein sogenannter \textit{Method Channel} verwendet.
+
+\vspace{0.5cm}
+
+Ein \textit{Method Channel} ermöglicht die Kommunikation zwischen dem Dart-Code von Flutter und dem nativen Code der jeweiligen Plattform (Android oder iOS). Dazu muss ein Channel erstellt werden, der als Brücke zwischen dem Flutter-Frontend und den API-Funktionen des Endgeräts fungiert. Der Dart-Code sendet Anfragen über diesen Kanal und der native Code antwortet, indem er die entsprechenden Betriebssystemfunktionen aufruft.
+
+\vspace{0.5cm}
+
+Beispielsweise wird bei der Auswahl eines Bildes über den \textit{Method Channel} eine Anfrage an das Endgerät gesendet, die die native Funktion zum Öffnen der Galerie aufruft. Nach der Auswahl eines Bildes wird dieses zurückgesendet und kann im Flutter-Quellcode verwaltet und angezeigt werden.

@@ -1,0 +1,38 @@
+\section{React Native im Detail}
+React Native wurde von Meta Platforms Inc. entwickelt und erschien im Jahr 2015. Die Handhabung von React Native ist sehr ähnlich zu der von klassischem React für die webbasierte Softwareentwicklung. Der komponentenbasierte Ansatz beim Entwickeln und die Möglichkeit, JavaScript oder TypeScript zu verwenden, bieten erfahrenen Entwicklern eine vertraute Umgebung. 
+
+\vspace{0.5cm}
+
+Der Hauptunterschied zu klassischem React liegt darin, dass nicht der DOM über einen virtuellen DOM manipuliert wird, sondern der JavaScript-Code direkt auf dem Endgerät kompiliert wird.
+
+\vspace{0.5cm}
+
+Die Kompilierung des JavaScript-Codes zum nativen Code erfolgt über sogenannte Brücken, über die die Übersetzung stattfindet. Über diese bidirektionale Verbindung werden Nachrichten gesendet, die angeben, welche Aktionen ausgeführt werden sollen und wie dies geschehen soll. Beispielsweise wird von der JavaScript-Seite eine Information gesendet, dass eine \textit{View} dargestellt werden soll, die von der nativen Seite aus aufgebaut werden muss. 
+
+\vspace{0.5cm}
+
+Umgekehrt funktioniert die Kommunikation ebenso: Wenn eine Eingabe in der Ansicht erfolgt, wird eine Nachricht über die Brücke an die JavaScript-Seite gesendet. Diese Informationen werden asynchron übertragen und von der Brücke zwischen den beiden Parteien verwaltet. Die Asynchronität ermöglicht eine reibungslose Darstellung der Ansichten, wodurch das Ziel einer flüssigen Darstellung von etwa 60 Bildern pro Sekunde erreicht wird. Diese Architektur lässt sich durch ihr entkoppeltes System und die Flexibilität für die Integration mit verschiedenen Frameworks und Systemen stetig erweitern.
+
+\vspace{0.5cm}
+
+Eine zu hohe Anzahl an Nachrichten, die über die Brücke gesendet werden, kann zu einem Stau führen, was Leistungseinbußen zur Folge hat. \textit{Hermes} ist eine JavaScript-Engine, die genutzt wird, um den Quellcode direkt auf dem Endgerät auszuführen. Sie führt Bytecode direkt auf dem Endgerät aus, was zu einer besseren Performance führt. Falls Hermes deaktiviert ist, wird \textit{JavaScriptCore} verwendet, das auf iOS-Geräten den Nachteil der fehlenden \textit{JIT}-Kompilierung (\textit{Just-in-Time}) aufweist. 
+
+\vspace{0.5cm}
+
+Ein weiterer wichtiger Bestandteil des Kompilierungs- und Bauprozesses ist der \textit{Metro-Bundler}, der die JavaScript-Dateien bündelt und für die Ausführung auf dem jeweiligen Endgerät vorbereitet.
+
+\vspace{0.5cm}
+
+React Native verwendet native Build-Systeme, um die Applikationen für die jeweiligen Endgeräte zu bauen. Bei iOS und Android sind die Schritte nahezu identisch: Android nutzt \textit{Gradle}, iOS verwendet \textit{Xcode}. Die durch den Metro-Bundler gebündelten JavaScript-Dateien werden zu nativem Code kompiliert und anschließend in eine \textit{APK} für Android oder eine \textit{IPA} für iOS verpackt und signiert.
+
+\vspace{0.5cm}
+
+React Native bietet von Haus aus keine Möglichkeit, die Anwendung für das Web zu kompilieren. Hierfür kann ein zusätzliches Repository genutzt werden, das die Möglichkeit bietet, den React-Quellcode für den Browser zu kompilieren. Der Kompilierungsprozess ist hierbei identisch zu der Kompilierung von klassischem React-Code.
+
+\vspace{0.5cm}
+
+\begin{center}
+    \url{https://reactnative.dev/docs/out-of-tree-platforms}
+\end{center}
+
+Ein Auszug der Möglichkeiten, für welche Endgeräte React Native kompiliert werden kann.
