@@ -7,25 +7,25 @@ Das Frontend beschreibt den Teil einer Anwendung, der auf dem Endgerät läuft u
 
 \vspace{0.5cm}
 
-Maschinencode
+\subsection{Maschinencode}
 
 Die tiefste Ebene der Programmiersprachen bilden die Maschinensprachen oder Assembler-Sprachen ab. Diese Sprachen werden direkt auf dem Prozessor des Zielsystems interpretiert und ausgeführt. Da verschiedene Prozessoren unterschiedliche Befehle verarbeiten können, muss der Code für das jeweilige Zielsystem ausgelegt sein. Assembler-Sprachen sind also plattformspezifisch und erfordern eine genaue Abstimmung auf das Endgerät.
 
 \vspace{0.5cm}
 
-Bytecode
+\subsection{Bytecode}
 
 Einige Programmiersprachen verwenden Bytecode, um den geschriebenen Quellcode in eine Zwischensprache zu übersetzen. Dies ermöglicht es, den Code auf verschiedenen Endgeräten laufen zu lassen, ohne ihn anpassen zu müssen. Sprachen wie Java nutzen Bytecode und benötigen eine virtuelle Maschine (JVM), die den Zwischencode zur Laufzeit in Maschinensprache für das jeweilige Zielsystem übersetzt. Ein Vorteil der Bytecode-Verwendung ist die Plattformunabhängigkeit.
 
 \vspace{0.5cm}
 
-Native Frontend-Entwicklung - iOS (Swift) und Android (Kotlin)
+\subsection{Native Frontend-Entwicklung - iOS und Android}
 
 Möchte man auf bestimmte Funktionen eines Endgeräts zugreifen, ist eine native Entwicklung erforderlich. Bei Android-Geräten wird häufig Kotlin verwendet, während iOS-Apps in Swift programmiert werden. Native Software greift direkt auf das Betriebssystem zu und muss daher plattformspezifisch sein. Kotlin und Swift bieten leistungsstarke Möglichkeiten, um direkt auf die Hardware und nativen Funktionen der Geräte zuzugreifen.
 
 \vspace{0.5cm}
 
-Webbasierte Software
+\subsection{Webbasierte Software}
 
 Die fundamentalste Möglichkeit, ein Frontend zu entwickeln, ist die webbasierte Programmierung. Mit HTML (Hyper Text Markup Language) werden Komponenten entwickelt, die von einem Webbrowser interpretiert und dargestellt werden. HTML-Dateien beinhalten jedoch keine Logik. Um die Benutzeroberfläche mit Funktionen auszustatten, wird JavaScript genutzt, das dynamisch zur Laufzeit kompiliert wird. Um die Benutzeroberfläche zu manipulieren, wird das DOM (Document Object Model) verwendet, das eine Schnittstelle zwischen HTML und JavaScript darstellt.
 
@@ -52,7 +52,7 @@ Nachteile webbasierter Software
 
 \vspace{0.5cm}
 
-Cross-Platform Entwicklung - React Native oder Flutter
+\subsection{Cross-Platform Entwicklung}
 
 Cross-Platform-Entwicklung ermöglicht es, einen Quellcode zu schreiben, der auf verschiedenen Endgeräten läuft. Dies spart Zeit und Kosten, da nicht für jedes Betriebssystem ein separater Code entwickelt werden muss. Frameworks wie React Native und Flutter erlauben es, den Quellcode in die native Sprache des Zielsystems zu übersetzen, was die Leistung verbessert und den Zugriff auf native Funktionen ermöglicht.
 

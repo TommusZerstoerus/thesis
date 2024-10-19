@@ -1,20 +1,22 @@
-import {FlatList, Text, View} from "react-native";
-import {styles} from "../styles/styles";
+import {FlatList, Text, View} from "react-native"
+import {styles} from "../styles/styles"
 import {fakerDE as faker} from '@faker-js/faker'
-import {Profiler, useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {Profiler, useCallback, useMemo} from "react"
 
 interface ItemListProps  {
-    onRenderDone: () => void
+    onRenderDone: () => void,
+    listSize: number
 }
 
+
 export const ItemList = (props : ItemListProps) => {
-    const data = useMemo(() => Array.from({ length: 100000 }, (_, i) => ` ${i + 1} ${faker.hacker.phrase()}`), []);
+    const data = useMemo(() => Array.from({ length: props.listSize }, (_, i) => ` ${i + 1} ${faker.hacker.phrase()}`), [])
 
     const renderItem = useCallback(({ item }: { item: string }) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item}</Text>
         </View>
-    ), []);
+    ), [])
 
     const onRender = () => {
         props.onRenderDone()
@@ -29,5 +31,5 @@ export const ItemList = (props : ItemListProps) => {
                 contentContainerStyle={{width: '100%'}}
             />
         </Profiler>
-    );
+    )
 }

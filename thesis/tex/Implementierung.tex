@@ -1,0 +1,29 @@
+\section{Implementierung}
+\subsection{Expo}
+
+Bei der Entwicklung der Benchmarks wurde Expo genutzt, um die Implementierung von React Native zu erleichtern. Expo ist ein Framework, welches den Umgang mit React Native verbessert. Es liefert Tools fürs Debugging, erleichtert das Bauen und Starten von nativen Apps und bietet eine große Auswahl an Bibliotheken.
+
+\subsection{Grundlegendes}
+
+Die Implementierung ist darauf ausgelegt, auf beiden Frameworks nahezu identisch zu sein. Es werden Packages genutzt, welche von den Frameworks direkt zur Verfügung gestellt wurden oder von den Entwicklern empfohlen wurden.
+
+\subsection{Würfel Benchmark}
+
+\subsection*{React Native}
+
+Es wurde eine View über den gesamten Anzeigebereich gestaltet. In dieser View wird eine Anzahl an Würfel-Komponenten gerendert. Ein Array mit einer Größe von der festgelegten Anzahl an darzustellenden Würfeln sorgt für die Anzahl der dargestellten Würfel. Die Darstellung eines einzelnen Würfels wird durch eine separate Komponente realisiert. 
+
+Eine \texttt{Animated View}, bei der die Argumente Position, Rotation und Hintergrundfarbe ständig verändert werden, umfasst eine View, in der sich ein Text mit dem Unicode eines Würfels befindet, der dauerhaft die Farbe wechselt. Alle 2 Sekunden wird die Rotation des Würfels auf den Ursprung gesetzt, sowie eine neue Zielposition bestimmt und eine neue Farbe festgelegt. Die Argumente Position und Rotation werden über einen \texttt{useState} verwaltet. 
+
+In einem \texttt{useEffect} wird dafür gesorgt, dass beim Rendern der Komponente die drei wichtigen Funktionen aufgerufen werden. Die Bewegung des Würfels wird durch die Funktion \texttt{animatePosition} ermöglicht, welche zufällige \(x\) und \(y\) Werte bestimmt und diese durch \texttt{Animated.timing} in einem flüssigen Übergang darstellt. 
+
+Die Rotation wird ebenfalls durch \texttt{Animated.timing} verwaltet, wobei die Rotation bei dem Wert 0 startet und bei 1 endet. Durch \texttt{rotation.interpolate} wird im späteren Verlauf des Codes festgelegt, dass der Wert 0 für \(0^\circ\) steht und 1 für \(360^\circ\). Dies sorgt für eine vollständige Rotierung um die eigene Achse in einem flüssigen Übergang. Farblich ändert sich der Würfel, indem ein Array aus den vorhandenen Farben angelegt wird und bei dem Aufruf durch das Intervall ein neuer Index bestimmt wird. Der jeweilige Farbeintrag aus dem Array wird ausgelesen und der View zugeschrieben.
+
+\subsection*{Flutter}
+
+Die View wird so gestaltet, dass eine festgelegte Anzahl an animierten Würfeln auf dem Bildschirm dargestellt wird. Die Anzahl der Würfel wird durch eine Liste generiert. Jeder Würfel wird durch eine Komponente realisiert, die sowohl in Farbe als auch in Position und Rotation animiert ist. 
+
+Ein \texttt{AnimationController} steuert die Animationen der Würfel, die alle 2 Sekunden wiederholt werden. Die Würfel ändern ihre Farbe kontinuierlich, indem ein \texttt{ColorTween} verwendet wird, um zwischen Farben aus einer vordefinierten Liste von Farben zu wechseln. Die Position jedes Würfels wird zufällig bestimmt, wobei der Ausgangs- und Zielort innerhalb des Bildschirms zufällig gesetzt wird. 
+
+Die Rotation erfolgt kontinuierlich über den Animationscontroller und interpoliert zwischen \(0^\circ\) und \(360^\circ\). Die Animation wird in einer \texttt{AnimatedBuilder}-Komponente gerendert, die sicherstellt, dass der Würfel sich sowohl in Position, Rotation als auch Farbe flüssig ändert.
+
