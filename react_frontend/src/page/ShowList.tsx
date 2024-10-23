@@ -1,8 +1,8 @@
 import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native"
 import {styles} from "../styles/styles"
-import {useCallback, useRef, useState} from "react"
-import {ItemList} from "../components/ItemList"
+import {Profiler, useCallback, useMemo, useRef, useState} from "react"
 import {calculateMean, calculateMedian} from "./Upload"
+import {fakerDE as faker} from '@faker-js/faker'
 
 const listSize = 1000
 
@@ -19,11 +19,10 @@ export const ShowList = () => {
 
     const handleFinishedRender = () => {
         const duration = performance.now() - time.current
-        time.current = duration
-        resultTime.current = duration
         if (duration < 5000) {
             setResults(prevResults => [duration, ...prevResults])
         }
+        resultTime.current = duration
     }
 
     const renderItem = useCallback(({item}: { item: number }) => (
@@ -53,5 +52,42 @@ export const ShowList = () => {
                 <ItemList onRenderDone={handleFinishedRender} listSize={listSize}/>
             )}
         </SafeAreaView>
+    )
+}
+
+interface ItemListProps  {
+    onRenderDone: () => void,
+    listSize: number
+}
+
+export const ItemList = (props : ItemListProps) => {
+    const data = useMemo(() => Array.from({ length: props.listSize }, (_, i) => ` ${i + 1} ${faker.hacker.phrase()}`), [])
+
+    const renderItem = useCallback(({ item }: { item: string }) => (
+        <View style={styles.itemContainer}>
+            <Text style={styles.itemText}>{item}</Text>
+        </View>
+    ), [])
+
+    const onRender = useRef(false)
+
+    const handleRenderDone = () => {
+        if (!onRender.current) {
+            onRender.current = true
+            props.onRenderDone()
+        }
+    }
+
+    return (
+        <Profiler id="test" onRender={handleRenderDone}>
+            <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(_, index) => index.toString()}
+                contentContainerStyle={{width: '100%'}}
+                initialNumToRender={props.listSize}
+                windowSize={props.listSize}
+            />
+        </Profiler>
     )
 }

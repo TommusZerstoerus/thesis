@@ -8,21 +8,16 @@ class ItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const ScrollPhysics(),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(items[index]),
-              );
-            },
-          ),
-        ],
+    return Expanded( // Hier Expanded hinzufügen, um der ListView genügend Platz zu geben
+      child: RepaintBoundary(
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(items[index]),
+            );
+          },
+        ),
       ),
     );
   }
@@ -69,8 +64,7 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
   void initState() {
     super.initState();
     var faker = Faker();
-    _items =
-        List.generate(1000, (index) => '${index + 1}. ${faker.person.name()}');
+    _items = List.generate(1000, (index) => '${index + 1}. ${faker.person.name()}');
   }
 
   @override
@@ -108,8 +102,7 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
             ),
             ElevatedButton(
               onPressed: _toggleListVisibility,
-              child:
-                  Text(_showList ? 'Verstecke die Liste' : 'Zeige die Liste'),
+              child: Text(_showList ? 'Verstecke die Liste' : 'Zeige die Liste'),
             ),
             if (_showList) ItemList(items: _items),
           ],
@@ -140,8 +133,7 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
     List<int> sortedDurations = [..._durations]..sort();
     int count = sortedDurations.length;
     if (count % 2 == 0) {
-      return (sortedDurations[count ~/ 2 - 1] + sortedDurations[count ~/ 2]) /
-          2;
+      return (sortedDurations[count ~/ 2 - 1] + sortedDurations[count ~/ 2]) / 2;
     } else {
       return sortedDurations[count ~/ 2];
     }
