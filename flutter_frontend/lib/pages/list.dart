@@ -1,6 +1,5 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_frontend/config.dart';
 
 class ItemList extends StatelessWidget {
@@ -52,10 +51,10 @@ class SimpleListScreen extends StatefulWidget {
   const SimpleListScreen({super.key});
 
   @override
-  _SimpleListScreenState createState() => _SimpleListScreenState();
+  SimpleListScreenState createState() => SimpleListScreenState();
 }
 
-class _SimpleListScreenState extends State<SimpleListScreen> {
+class SimpleListScreenState extends State<SimpleListScreen> {
   late List<String> _items;
   final List<int> _durations = [];
   bool _showList = false;

@@ -10,10 +10,10 @@ class UploadScreen extends StatefulWidget {
   const UploadScreen({super.key});
 
   @override
-  _UploadScreenState createState() => _UploadScreenState();
+  UploadScreenState createState() => UploadScreenState();
 }
 
-class _UploadScreenState extends State<UploadScreen> {
+class UploadScreenState extends State<UploadScreen> {
   File? _image; // Für Android/iOS
   XFile? _webImage; // Für Web
   String? _error;

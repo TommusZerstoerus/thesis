@@ -4,13 +4,13 @@ import '../components/animated_cube.dart';
 import '../config.dart';
 
 class AnimatedCubeScreen extends StatefulWidget {
-  const AnimatedCubeScreen({Key? key}) : super(key: key);
+  const AnimatedCubeScreen({super.key});
 
   @override
-  _AnimatedCubeScreenState createState() => _AnimatedCubeScreenState();
+  AnimatedCubeScreenState createState() => AnimatedCubeScreenState();
 }
 
-class _AnimatedCubeScreenState extends State<AnimatedCubeScreen>
+class AnimatedCubeScreenState extends State<AnimatedCubeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late List<Widget> _cubes;

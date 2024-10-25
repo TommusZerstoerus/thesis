@@ -10,10 +10,10 @@ class AnimatedCube extends StatefulWidget {
       {super.key, required this.controller, required this.colorList});
 
   @override
-  _AnimatedCubeState createState() => _AnimatedCubeState();
+  AnimatedCubeState createState() => AnimatedCubeState();
 }
 
-class _AnimatedCubeState extends State<AnimatedCube> {
+class AnimatedCubeState extends State<AnimatedCube> {
   late Animation<Color?> _colorAnimation;
   late Color _currentColor;
   late Color _nextColor;
