@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/animated_cube.dart';
+import '../config.dart';
 
 class AnimatedCubeScreen extends StatefulWidget {
   const AnimatedCubeScreen({Key? key}) : super(key: key);
@@ -23,7 +24,6 @@ class _AnimatedCubeScreenState extends State<AnimatedCubeScreen>
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    const int cubeCount = 10;
     _colorList = [
       Colors.red,
       Colors.yellow,
@@ -57,7 +57,7 @@ class _AnimatedCubeScreenState extends State<AnimatedCubeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cube Benchmark"),
+        title: const Text("Cube"),
       ),
       body: Stack(
         children: _cubes,

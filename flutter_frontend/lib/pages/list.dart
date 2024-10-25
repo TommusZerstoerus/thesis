@@ -1,5 +1,7 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_frontend/config.dart';
 
 class ItemList extends StatelessWidget {
   final List<String> items;
@@ -8,7 +10,7 @@ class ItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded( // Hier Expanded hinzufügen, um der ListView genügend Platz zu geben
+    return Expanded(
       child: RepaintBoundary(
         child: ListView.builder(
           itemCount: items.length,
@@ -58,20 +60,20 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
   final List<int> _durations = [];
   bool _showList = false;
   DateTime? _startTime;
-  DateTime? _endTime;
+  int? _duration;
 
   @override
   void initState() {
     super.initState();
     var faker = Faker();
-    _items = List.generate(1000, (index) => '${index + 1}. ${faker.person.name()}');
+    _items = List.generate(listSize, (index) => '${index + 1}. ${faker.lorem.words(10)}');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List Benchmark"),
+        title: const Text("List"),
       ),
       body: Center(
         child: Column(
@@ -79,8 +81,8 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                _endTime != null
-                    ? 'Dauer: ${_endTime!.difference(_startTime!).inMilliseconds} ms'
+                _duration != null
+                    ? 'Dauer: $_duration ms'
                     : 'Dauer: -',
               ),
             ),
@@ -115,17 +117,18 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
     setState(() {
       _showList = !_showList;
       if (_showList) {
-        _measureTime();
+        _startTime = DateTime.now();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          final endTime = DateTime.now();
+          final duration = endTime.difference(_startTime!).inMilliseconds;
+          setState(() {
+            _duration = duration;
+            _durations.insert(0, duration);
+          });
+        });
+      } else {
+        _duration = null;
       }
-    });
-  }
-
-  void _measureTime() {
-    _startTime = DateTime.now();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _endTime = DateTime.now();
-      _durations.insert(0, _endTime!.difference(_startTime!).inMilliseconds);
-      setState(() {});
     });
   }
 
@@ -143,10 +146,4 @@ class _SimpleListScreenState extends State<SimpleListScreen> {
     if (_durations.isEmpty) return 0;
     return _durations.reduce((a, b) => a + b) / _durations.length;
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: SimpleListScreen(),
-  ));
 }

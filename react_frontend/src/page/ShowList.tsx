@@ -3,8 +3,7 @@ import {styles} from "../styles/styles"
 import {Profiler, useCallback, useMemo, useRef, useState} from "react"
 import {calculateMean, calculateMedian} from "./Upload"
 import {fakerDE as faker} from '@faker-js/faker'
-
-const listSize = 1000
+import {listSize} from "../config";
 
 export const ShowList = () => {
     const [pressed, setPressed] = useState(false)
@@ -49,7 +48,7 @@ export const ShowList = () => {
                 {pressed ? <Text>Verstecke die Liste</Text> : <Text>Zeige die Liste an</Text>}
             </Pressable>
             {pressed && (
-                <ItemList onRenderDone={handleFinishedRender} listSize={listSize}/>
+                <ItemList onRenderDone={handleFinishedRender}/>
             )}
         </SafeAreaView>
     )
@@ -57,11 +56,10 @@ export const ShowList = () => {
 
 interface ItemListProps  {
     onRenderDone: () => void,
-    listSize: number
 }
 
 export const ItemList = (props : ItemListProps) => {
-    const data = useMemo(() => Array.from({ length: props.listSize }, (_, i) => ` ${i + 1} ${faker.hacker.phrase()}`), [])
+    const data = useMemo(() => Array.from({ length: listSize }, (_, i) => ` ${i + 1} ${faker.lorem.words(10)}`), [])
 
     const renderItem = useCallback(({ item }: { item: string }) => (
         <View style={styles.itemContainer}>
@@ -85,8 +83,8 @@ export const ItemList = (props : ItemListProps) => {
                 renderItem={renderItem}
                 keyExtractor={(_, index) => index.toString()}
                 contentContainerStyle={{width: '100%'}}
-                initialNumToRender={props.listSize}
-                windowSize={props.listSize}
+                initialNumToRender={listSize}
+                windowSize={listSize}
             />
         </Profiler>
     )

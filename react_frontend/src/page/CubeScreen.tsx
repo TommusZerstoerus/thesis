@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import {Animated, Dimensions, Text, View} from 'react-native'
-const windowWidth = Dimensions.get('window').width
-const windowHeight = Dimensions.get('window').height
-const cubeSize = 50
+import React, {useEffect, useState} from 'react';
+import {Animated, Dimensions, Text, View} from 'react-native';
+import {cubeCount} from "../config";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const cubeSize = 50;
 
 const COLORS = [
     'red',
@@ -11,9 +13,8 @@ const COLORS = [
     'blue',
     'orange',
     'purple',
-]
+];
 
-const cubeCount: number = 10
 export const AnimatedCubesContainer = () => {
     return (
         <View>
@@ -21,63 +22,74 @@ export const AnimatedCubesContainer = () => {
                 <AnimatedCube key={index}/>
             ))}
         </View>
-    )
-}
+    );
+};
 
 export const AnimatedCube = () => {
-    const [position] = useState(new Animated.ValueXY({x: 0, y: 0}))
-    const [rotation] = useState(new Animated.Value(0))
-    const randomColorIndex = Math.floor(Math.random() * COLORS.length)
-    const [colorIndex, setColorIndex] = useState(randomColorIndex)
-
+    const [position] = useState(new Animated.ValueXY({x: 0, y: 0}));
+    const [rotation] = useState(new Animated.Value(0));
+    const [colorAnimation] = useState(new Animated.Value(0));
 
     useEffect(() => {
         const animatePosition = () => {
-            const maxX = windowWidth - cubeSize
-            const maxY = windowHeight - cubeSize
-            const newX = Math.random() * maxX
-            const newY = Math.random() * maxY
+            const maxX = windowWidth - cubeSize;
+            const maxY = windowHeight - cubeSize;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
 
             Animated.timing(position, {
                 toValue: {x: newX, y: newY},
                 duration: 2000,
                 useNativeDriver: true,
-            }).start(() => animatePosition())
-        }
+            }).start(() => animatePosition());
+        };
 
         const animateRotation = () => {
-            rotation.setValue(0)
+            rotation.setValue(0);
             Animated.timing(rotation, {
                 useNativeDriver: true,
                 toValue: 1,
                 duration: 2000,
-            }).start(() => animateRotation())
-        }
+            }).start(() => animateRotation());
+        };
 
-        const changeColor = () => {
-            setColorIndex(randomColorIndex)
-        }
+        const animateColor = () => {
+            Animated.loop(
+                Animated.sequence([
+                    Animated.timing(colorAnimation, {
+                        toValue: 1,
+                        duration: 2000,
+                        useNativeDriver: false,
+                    }),
+                    Animated.timing(colorAnimation, {
+                        toValue: 0,
+                        duration: 2000,
+                        useNativeDriver: false,
+                    }),
+                ]),
+            ).start();
+        };
 
-        const animationInterval = setInterval(() => {
-            changeColor()
-        }, 2000)
-
-        animateRotation()
-        animatePosition()
+        animateRotation();
+        animatePosition();
+        animateColor();
 
         return () => {
-            clearInterval(animationInterval)
-            rotation.removeAllListeners()
-            position.removeAllListeners()
-        }
-    }, [])
+            rotation.removeAllListeners();
+            position.removeAllListeners();
+            colorAnimation.removeAllListeners();
+        };
+    }, []);
 
     const rotate = rotation.interpolate({
         inputRange: [0, 1],
         outputRange: ['0deg', '360deg'],
-    })
+    });
 
-    const backgroundColor = COLORS[colorIndex]
+    const backgroundColor = colorAnimation.interpolate({
+        inputRange: COLORS.map((_, index) => index / (COLORS.length - 1)),
+        outputRange: COLORS,
+    });
 
     return (
         <Animated.View style={[
@@ -95,6 +107,5 @@ export const AnimatedCube = () => {
                 <Text style={{fontSize: 30}}>🎲</Text>
             </View>
         </Animated.View>
-    )
-}
-
+    );
+};

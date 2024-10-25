@@ -14,10 +14,10 @@ class UploadScreen extends StatefulWidget {
 }
 
 class _UploadScreenState extends State<UploadScreen> {
-  File? _image; // For Android/iOS
-  XFile? _webImage; // For Web
+  File? _image; // Für Android/iOS
+  XFile? _webImage; // Für Web
   String? _error;
-  List<double> _results = [];
+  final List<double> _results = [];
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
@@ -25,7 +25,6 @@ class _UploadScreenState extends State<UploadScreen> {
     final startTime = DateTime.now();
 
     if (kIsWeb) {
-      // Web: Verwende file_picker zum Auswählen von Bildern
       final result = await FilePicker.platform.pickFiles(type: FileType.image);
       if (result != null && result.files.single.bytes != null) {
         setState(() {
@@ -39,7 +38,6 @@ class _UploadScreenState extends State<UploadScreen> {
         });
       }
     } else {
-      // Android/iOS: Verwende image_picker
       final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
       if (pickedFile != null) {
@@ -88,18 +86,18 @@ class _UploadScreenState extends State<UploadScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Upload'),
+        title: const Text('Upload'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text('Upload'),
-            SizedBox(height: 10),
+            const Text('Upload'),
+            const SizedBox(height: 10),
             Text('Median: ${median.toStringAsFixed(5)} ms'),
             Text('Mittelwert: ${mean.toStringAsFixed(5)} ms'),
-            SizedBox(height: 10),
-            Text('Letzte Ergebnisse'),
+            const SizedBox(height: 10),
+            const Text('Letzte Ergebnisse'),
             Expanded(
               child: ListView.builder(
                 itemCount: _results.length,
@@ -112,18 +110,18 @@ class _UploadScreenState extends State<UploadScreen> {
             ),
             ElevatedButton(
               onPressed: _pickImage,
-              child: Text('Lade ein Bild hoch'),
+              child: const Text('Lade ein Bild hoch'),
             ),
             if (!kIsWeb && _image != null)
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 width: 200,
                 height: 200,
                 child: Image.file(_image!),
               ),
             if (kIsWeb && _webImage != null)
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 width: 200,
                 height: 200,
                 child: Image.network(_webImage!.path),
@@ -131,7 +129,7 @@ class _UploadScreenState extends State<UploadScreen> {
             if (_error != null)
               Text(
                 _error!,
-                style: TextStyle(color: Colors.red),
+                style: const TextStyle(color: Colors.red),
               ),
           ],
         ),
