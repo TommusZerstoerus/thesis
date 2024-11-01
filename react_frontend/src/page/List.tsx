@@ -1,11 +1,11 @@
 import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native"
 import {styles} from "../styles/styles"
 import {Profiler, useCallback, useMemo, useRef, useState} from "react"
-import {calculateMean, calculateMedian} from "./Upload"
 import {fakerDE as faker} from '@faker-js/faker'
 import {listSize} from "../config";
+import {calculateMean, calculateMedian} from "../helper";
 
-export const ShowList = () => {
+export const List = () => {
     const [pressed, setPressed] = useState(false)
     const time = useRef<number>(0)
     const resultTime = useRef<number>(0)
@@ -18,9 +18,7 @@ export const ShowList = () => {
 
     const handleFinishedRender = () => {
         const duration = performance.now() - time.current
-        if (duration < 5000) {
-            setResults(prevResults => [duration, ...prevResults])
-        }
+        setResults(prevResults => [duration, ...prevResults])
         resultTime.current = duration
     }
 
@@ -36,9 +34,9 @@ export const ShowList = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Text>Dauer: {pressed ? resultTime.current.toFixed(5) : 0} ms</Text>
-            <Text>Letzte Ergebnisse</Text>
             <Text>Median: {median} ms</Text>
             <Text>Mittelwert: {mean} ms</Text>
+            <Text>Letzte Ergebnisse</Text>
             <FlatList
                 data={results}
                 keyExtractor={(item, index) => index.toString()}
@@ -54,14 +52,14 @@ export const ShowList = () => {
     )
 }
 
-interface ItemListProps  {
+interface ItemListProps {
     onRenderDone: () => void,
 }
 
-export const ItemList = (props : ItemListProps) => {
-    const data = useMemo(() => Array.from({ length: listSize }, (_, i) => ` ${i + 1} ${faker.lorem.words(10)}`), [])
+export const ItemList = (props: ItemListProps) => {
+    const data = useMemo(() => Array.from({length: listSize}, (_, i) => ` ${i + 1} ${faker.lorem.words(10)}`), [])
 
-    const renderItem = useCallback(({ item }: { item: string }) => (
+    const renderItem = useCallback(({item}: { item: string }) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item}</Text>
         </View>
@@ -77,7 +75,7 @@ export const ItemList = (props : ItemListProps) => {
     }
 
     return (
-        <Profiler id="test" onRender={handleRenderDone}>
+        <Profiler id="listRender" onRender={handleRenderDone}>
             <FlatList
                 data={data}
                 renderItem={renderItem}

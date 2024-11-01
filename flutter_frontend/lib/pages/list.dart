@@ -2,6 +2,8 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_frontend/config.dart';
 
+import '../helper.dart';
+
 class ItemList extends StatelessWidget {
   final List<String> items;
 
@@ -39,7 +41,7 @@ class DurationList extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(items[index]),
+            title: Text('${items.length - index} - ${items[index]}'),
           );
         },
       ),
@@ -56,10 +58,10 @@ class SimpleListScreen extends StatefulWidget {
 
 class SimpleListScreenState extends State<SimpleListScreen> {
   late List<String> _items;
-  final List<int> _durations = [];
+  final List<double> _durations = [];
   bool _showList = false;
   DateTime? _startTime;
-  int? _duration;
+  double? _duration;
 
   @override
   void initState() {
@@ -89,11 +91,11 @@ class SimpleListScreenState extends State<SimpleListScreen> {
               Column(
                 children: [
                   Text(
-                    'Median: ${_calculateMedian()} ms',
+                    'Median: ${calculateMedian(_durations)} ms',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Mean: ${_calculateMean()} ms',
+                    'Mean: ${calculateMean(_durations)} ms',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -121,28 +123,13 @@ class SimpleListScreenState extends State<SimpleListScreen> {
           final endTime = DateTime.now();
           final duration = endTime.difference(_startTime!).inMilliseconds;
           setState(() {
-            _duration = duration;
-            _durations.insert(0, duration);
+            _duration = duration as double?;
+            _durations.insert(0, duration as double);
           });
         });
       } else {
         _duration = null;
       }
     });
-  }
-
-  num _calculateMedian() {
-    List<int> sortedDurations = [..._durations]..sort();
-    int count = sortedDurations.length;
-    if (count % 2 == 0) {
-      return (sortedDurations[count ~/ 2 - 1] + sortedDurations[count ~/ 2]) / 2;
-    } else {
-      return sortedDurations[count ~/ 2];
-    }
-  }
-
-  double _calculateMean() {
-    if (_durations.isEmpty) return 0;
-    return _durations.reduce((a, b) => a + b) / _durations.length;
   }
 }

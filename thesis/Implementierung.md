@@ -18,4 +18,4 @@ Die View wird so gestaltet, dass eine festgelegte Anzahl an animierten Würfeln 
 
 ## Listen Benchmark
 
-## Upload Benchmark
+## Storage Benchmark

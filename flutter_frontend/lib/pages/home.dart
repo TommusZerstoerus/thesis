@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_frontend/pages/list.dart';
-import 'package:flutter_frontend/pages/upload.dart';
+import 'package:flutter_frontend/pages/storage.dart';
 
 import 'animated_cube_screen.dart';
 
@@ -50,11 +50,11 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Upload'),
+              title: const Text('Storage'),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const UploadScreen()),
+                  MaterialPageRoute(builder: (context) => const StorageScreen()),
                 );
               },
             ),
