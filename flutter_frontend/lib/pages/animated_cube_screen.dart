@@ -57,7 +57,7 @@ class AnimatedCubeScreenState extends State<AnimatedCubeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cube"),
+        title: const Text("Cube $cubeCount"),
       ),
       body: Stack(
         children: _cubes,

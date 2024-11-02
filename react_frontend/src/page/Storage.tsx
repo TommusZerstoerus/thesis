@@ -30,17 +30,18 @@ export const Storage = () => {
         const jsonData = generateData();
 
         try {
+            await AsyncStorage.clear()
             await AsyncStorage.setItem('jsonData', JSON.stringify(jsonData));
 
             const storedData = await AsyncStorage.getItem('jsonData');
             if (storedData) {
                 const parsedData: jsonObject[] = JSON.parse(storedData);
-                //console.log('Geladene und deserialisierte Daten:', parsedData.length);
+                if (parsedData.length === dataSize) {
+                    const endTime = performance.now();
+                    const duration = calculateDuration(startTime, endTime);
+                    setResults((prevResults) => [duration, ...prevResults]);
+                }
             }
-
-            const endTime = performance.now();
-            const duration = calculateDuration(startTime, endTime);
-            setResults((prevResults) => [duration, ...prevResults]);
         } catch (error) {
             console.error('Fehler beim Speichern und Laden:', error);
         }
@@ -51,7 +52,6 @@ export const Storage = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Storage</Text>
             <Text>Median: {median.toFixed(5)} ms</Text>
             <Text>Mittelwert: {mean.toFixed(5)} ms</Text>
             <Text>Letzte Ergebnisse</Text>

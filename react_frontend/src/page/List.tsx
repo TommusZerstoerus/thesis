@@ -1,8 +1,8 @@
 import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native"
 import {styles} from "../styles/styles"
-import {Profiler, useCallback, useMemo, useRef, useState} from "react"
+import React, {Profiler, useCallback, useMemo, useRef, useState} from "react"
 import {fakerDE as faker} from '@faker-js/faker'
-import {listSize} from "../config";
+import {dataSize, listSize} from "../config";
 import {calculateMean, calculateMedian} from "../helper";
 
 export const List = () => {

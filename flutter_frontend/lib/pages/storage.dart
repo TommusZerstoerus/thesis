@@ -21,7 +21,8 @@ class StorageBenchmarkState extends State<StorageScreen> {
 
   List<Map<String, String>> generateData(int dataSize) {
     final faker = Faker();
-    return List.generate(dataSize, (index) => {'words': faker.lorem.words(10).join(' ')});
+    return List.generate(
+        dataSize, (index) => {'words': faker.lorem.words(10).join(' ')});
   }
 
   double calculateDuration(double start, double end) {
@@ -34,19 +35,20 @@ class StorageBenchmarkState extends State<StorageScreen> {
 
     try {
       final prefs = await SharedPreferences.getInstance();
+      await prefs.clear();
       await prefs.setString('jsonData', json.encode(jsonData));
 
       final storedData = prefs.getString('jsonData');
       if (storedData != null) {
         final List<dynamic> parsedData = json.decode(storedData);
-        print('Geladene und deserialisierte Daten: ${parsedData.length} Einträge');
+        if (parsedData.length == dataSize) {
+          stopwatch.stop();
+          final duration = stopwatch.elapsedMilliseconds.toDouble();
+          setState(() {
+            results.insert(0, duration);
+          });
+        }
       }
-
-      stopwatch.stop();
-      final duration = stopwatch.elapsedMilliseconds.toDouble();
-      setState(() {
-        results.insert(0, duration);
-      });
     } catch (error) {
       print('Fehler beim Speichern und Laden: $error');
     }
@@ -58,7 +60,7 @@ class StorageBenchmarkState extends State<StorageScreen> {
     final mean = calculateMean(results);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Storage Benchmark')),
+      appBar: AppBar(title: const Text('Storage $dataSize')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -73,7 +75,8 @@ class StorageBenchmarkState extends State<StorageScreen> {
                 itemCount: results.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${results.length - index}: ${results[index].toStringAsFixed(5)} ms'),
+                    title: Text(
+                        '${results.length - index}: ${results[index].toStringAsFixed(5)} ms'),
                   );
                 },
               ),

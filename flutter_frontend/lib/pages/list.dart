@@ -67,14 +67,15 @@ class SimpleListScreenState extends State<SimpleListScreen> {
   void initState() {
     super.initState();
     var faker = Faker();
-    _items = List.generate(listSize, (index) => '${index + 1}. ${faker.lorem.words(10)}');
+    _items = List.generate(
+        listSize, (index) => '${index + 1}. ${faker.lorem.words(10)}');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List"),
+        title: const Text("List $listSize"),
       ),
       body: Center(
         child: Column(
@@ -82,9 +83,7 @@ class SimpleListScreenState extends State<SimpleListScreen> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                _duration != null
-                    ? 'Dauer: $_duration ms'
-                    : 'Dauer: -',
+                _duration != null ? 'Dauer: $_duration ms' : 'Dauer: -',
               ),
             ),
             if (_durations.isNotEmpty)
@@ -105,7 +104,8 @@ class SimpleListScreenState extends State<SimpleListScreen> {
             ),
             ElevatedButton(
               onPressed: _toggleListVisibility,
-              child: Text(_showList ? 'Verstecke die Liste' : 'Zeige die Liste'),
+              child:
+                  Text(_showList ? 'Verstecke die Liste' : 'Zeige die Liste'),
             ),
             if (_showList) ItemList(items: _items),
           ],
