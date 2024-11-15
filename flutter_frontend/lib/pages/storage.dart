@@ -25,7 +25,7 @@ class StorageBenchmarkState extends State<StorageScreen> {
         dataSize, (index) => {'words': faker.lorem.words(10).join(' ')});
   }
 
-  double calculateDuration(double start, double end) {
+  num calculateDuration(int start, int end) {
     return end - start;
   }
 
@@ -66,8 +66,8 @@ class StorageBenchmarkState extends State<StorageScreen> {
         child: Column(
           children: [
             const Text('Storage Benchmark', style: TextStyle(fontSize: 20)),
-            Text('Median: ${median.toStringAsFixed(5)} ms'),
-            Text('Mittelwert: ${mean.toStringAsFixed(5)} ms'),
+            Text('Median: ${median.toStringAsFixed(3)} ms'),
+            Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse', style: TextStyle(fontSize: 18)),
             Expanded(
@@ -76,14 +76,14 @@ class StorageBenchmarkState extends State<StorageScreen> {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
-                        '${results.length - index}: ${results[index].toStringAsFixed(5)} ms'),
+                        '${results.length - index}: ${results[index].toStringAsFixed(3)} ms'),
                   );
                 },
               ),
             ),
             ElevatedButton(
               onPressed: startSavingAndLoading,
-              child: const Text('Benchmark starten'),
+              child: const Text('Benchmark durchführen'),
             ),
           ],
         ),

@@ -33,7 +33,7 @@ export const List = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Dauer: {pressed ? resultTime.current.toFixed(5) : 0} ms</Text>
+            <Text>Dauer: {pressed ? resultTime.current.toFixed(3) : 0} ms</Text>
             <Text>Median: {median} ms</Text>
             <Text>Mittelwert: {mean} ms</Text>
             <Text>Letzte Ergebnisse</Text>

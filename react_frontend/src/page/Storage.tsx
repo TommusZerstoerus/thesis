@@ -52,18 +52,18 @@ export const Storage = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Median: {median.toFixed(5)} ms</Text>
-            <Text>Mittelwert: {mean.toFixed(5)} ms</Text>
+            <Text>Median: {median.toFixed(3)} ms</Text>
+            <Text>Mittelwert: {mean.toFixed(3)} ms</Text>
             <Text>Letzte Ergebnisse</Text>
             <FlatList
                 data={results}
                 keyExtractor={(_, index) => index.toString()}
                 renderItem={({item, index}) => (
-                    <Text>{results.length - index}: {item.toFixed(5)} ms</Text>
+                    <Text>{results.length - index}: {item.toFixed(3)} ms</Text>
                 )}
             />
             <Pressable style={styles.button} onPress={startSavingAndLoading}>
-                <Text style={{color: 'white'}}>Benchmark starten</Text>
+                <Text style={{color: 'white'}}>Benchmark durchführen</Text>
             </Pressable>
         </View>
     );

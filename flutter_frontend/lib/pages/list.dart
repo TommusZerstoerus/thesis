@@ -121,10 +121,10 @@ class SimpleListScreenState extends State<SimpleListScreen> {
         _startTime = DateTime.now();
         WidgetsBinding.instance.addPostFrameCallback((_) {
           final endTime = DateTime.now();
-          final duration = endTime.difference(_startTime!).inMilliseconds;
+          final duration = endTime.difference(_startTime!).inMilliseconds.toDouble();
           setState(() {
-            _duration = duration as double?;
-            _durations.insert(0, duration as double);
+            _duration = duration;
+            _durations.insert(0, duration);
           });
         });
       } else {
