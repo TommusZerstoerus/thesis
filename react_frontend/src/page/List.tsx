@@ -1,35 +1,35 @@
-import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native"
-import {styles} from "../styles/styles"
-import React, {Profiler, useCallback, useMemo, useRef, useState} from "react"
-import {fakerDE as faker} from '@faker-js/faker'
+import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native";
+import {styles} from "../styles/styles";
+import React, {Profiler, useCallback, useMemo, useRef, useState} from "react";
+import {fakerDE as faker} from '@faker-js/faker';
 import {dataSize, listSize} from "../config";
 import {calculateMean, calculateMedian} from "../helper";
 
 export const List = () => {
-    const [pressed, setPressed] = useState(false)
-    const time = useRef<number>(0)
-    const resultTime = useRef<number>(0)
-    const [results, setResults] = useState<number[]>([])
+    const [pressed, setPressed] = useState(false);
+    const time = useRef<number>(0);
+    const resultTime = useRef<number>(0);
+    const [results, setResults] = useState<number[]>([]);
 
     const togglePressed = () => {
-        setPressed(!pressed)
-        time.current = performance.now()
-    }
+        setPressed(!pressed);
+        time.current = performance.now();
+    };
 
     const handleFinishedRender = () => {
-        const duration = performance.now() - time.current
-        setResults(prevResults => [duration, ...prevResults])
-        resultTime.current = duration
-    }
+        const duration = performance.now() - time.current;
+        setResults(prevResults => [duration, ...prevResults]);
+        resultTime.current = duration;
+    };
 
     const renderItem = useCallback(({item}: { item: number }) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item.toFixed(5)} ms</Text>
         </View>
-    ), [])
+    ), []);
 
-    const median = calculateMedian(results)
-    const mean = calculateMean(results)
+    const median = calculateMedian(results);
+    const mean = calculateMean(results);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -49,34 +49,43 @@ export const List = () => {
                 <ItemList onRenderDone={handleFinishedRender}/>
             )}
         </SafeAreaView>
-    )
-}
+    );
+};
 
 interface ItemListProps {
-    onRenderDone: () => void,
+    onRenderDone: () => void;
 }
 
 export const ItemList = (props: ItemListProps) => {
-    const data = useMemo(() => Array.from({length: listSize}, (_, i) => ` ${i + 1} ${faker.lorem.words(10)}`), [])
+    const data = useMemo(() => Array.from({length: listSize}, (_, i) => ` ${i + 1} ${faker.lorem.words(10)}`), []);
+
+    const flatListRef = useRef<FlatList>(null);
+
+
+    const scrollToBottom = () => {
+        flatListRef.current?.scrollToEnd({animated: true});
+    };
 
     const renderItem = useCallback(({item}: { item: string }) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item}</Text>
         </View>
-    ), [])
+    ), []);
 
-    const onRender = useRef(false)
+    const onRender = useRef(false);
 
     const handleRenderDone = () => {
         if (!onRender.current) {
-            onRender.current = true
-            props.onRenderDone()
+            onRender.current = true;
+            props.onRenderDone();
         }
-    }
+    };
 
     return (
         <Profiler id="listRender" onRender={handleRenderDone}>
             <FlatList
+                decelerationRate={0.2}
+                ref={flatListRef}
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={(_, index) => index.toString()}
@@ -84,6 +93,12 @@ export const ItemList = (props: ItemListProps) => {
                 initialNumToRender={listSize}
                 windowSize={listSize}
             />
+            <Pressable
+                style={[styles.button, {position: 'absolute', bottom: 0, right: 0}]}
+                onPress={scrollToBottom}
+            >
+                <Text>Zum Ende scrollen</Text>
+            </Pressable>
         </Profiler>
-    )
-}
+    );
+};
