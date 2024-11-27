@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:localstore/localstore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config.dart';

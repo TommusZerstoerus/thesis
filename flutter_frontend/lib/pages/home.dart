@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_frontend/pages/list.dart';
+import 'package:flutter_frontend/pages/statemanagement.dart';
 import 'package:flutter_frontend/pages/storage.dart';
 
 import 'animated_cube_screen.dart';
+import 'fibonacci.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,6 +61,26 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Fibonacci'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FibonacciScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('State Management'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const StateManagementScreen()),
+                );
+              },
+            )
           ],
         ),
       ),
@@ -73,3 +95,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

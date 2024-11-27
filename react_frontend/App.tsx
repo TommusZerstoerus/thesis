@@ -4,13 +4,11 @@ import {AnimatedCubesContainer} from "./src/page/Cube";
 import {NavigationContainer} from "@react-navigation/native";
 import {List} from "./src/page/List";
 import {Home} from "./src/page/Home";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {Storage} from "./src/page/Storage";
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import {cubeCount, dataSize, listSize} from "./src/config";
-
-const Tab = createBottomTabNavigator();
+import {cubeCount, dataSize, fibonacciNumber, listSize, stateManagementSize} from "./src/config";
+import {Fibonacci} from "./src/page/Fibonacci";
+import {StateManagement} from "./src/page/StateManagement";
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +20,8 @@ export default function App() {
               <Drawer.Screen name={`Cube ${cubeCount}`} component={AnimatedCubesContainer}/>
               <Drawer.Screen name={`List ${listSize}`} component={List}/>
               <Drawer.Screen name={`Storage ${dataSize}`} component={Storage}/>
+              <Drawer.Screen name={`Fibonacci ${fibonacciNumber}`} component={Fibonacci}/>
+              <Drawer.Screen name={`Statemanagement ${stateManagementSize}`} component={StateManagement}/>
           </Drawer.Navigator>
       </NavigationContainer>
   );

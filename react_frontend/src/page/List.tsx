@@ -2,7 +2,7 @@ import {FlatList, Pressable, SafeAreaView, Text, View} from "react-native";
 import {styles} from "../styles/styles";
 import React, {Profiler, useCallback, useMemo, useRef, useState} from "react";
 import {fakerDE as faker} from '@faker-js/faker';
-import {dataSize, listSize} from "../config";
+import {listSize} from "../config";
 import {calculateMean, calculateMedian} from "../helper";
 
 export const List = () => {
@@ -33,6 +33,10 @@ export const List = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Pressable style={styles.button} onPress={togglePressed}>
+                {pressed ? <Text style={styles.text}>Verstecke die Liste</Text> :
+                    <Text style={styles.text}>Zeige die Liste an</Text>}
+            </Pressable>
             <Text>Dauer: {pressed ? resultTime.current.toFixed(3) : 0} ms</Text>
             <Text>Median: {median} ms</Text>
             <Text>Mittelwert: {mean} ms</Text>
@@ -42,9 +46,6 @@ export const List = () => {
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={renderItem}
             />
-            <Pressable style={styles.button} onPress={togglePressed}>
-                {pressed ? <Text>Verstecke die Liste</Text> : <Text>Zeige die Liste an</Text>}
-            </Pressable>
             {pressed && (
                 <ItemList onRenderDone={handleFinishedRender}/>
             )}
@@ -83,6 +84,12 @@ export const ItemList = (props: ItemListProps) => {
 
     return (
         <Profiler id="listRender" onRender={handleRenderDone}>
+            <Pressable
+                style={[styles.button, {position: 'absolute', bottom: 0, right: 0}]}
+                onPress={scrollToBottom}
+            >
+                <Text style={styles.text}>Zum Ende scrollen</Text>
+            </Pressable>
             <FlatList
                 decelerationRate={0.2}
                 ref={flatListRef}
@@ -93,12 +100,6 @@ export const ItemList = (props: ItemListProps) => {
                 initialNumToRender={listSize}
                 windowSize={listSize}
             />
-            <Pressable
-                style={[styles.button, {position: 'absolute', bottom: 0, right: 0}]}
-                onPress={scrollToBottom}
-            >
-                <Text>Zum Ende scrollen</Text>
-            </Pressable>
         </Profiler>
     );
 };

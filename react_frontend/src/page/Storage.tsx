@@ -52,6 +52,9 @@ export const Storage = () => {
 
     return (
         <View style={styles.container}>
+            <Pressable style={styles.button} onPress={startSavingAndLoading}>
+                <Text style={{color: 'white'}}>Benchmark durchführen</Text>
+            </Pressable>
             <Text>Median: {median.toFixed(3)} ms</Text>
             <Text>Mittelwert: {mean.toFixed(3)} ms</Text>
             <Text>Letzte Ergebnisse</Text>
@@ -62,9 +65,6 @@ export const Storage = () => {
                     <Text>{results.length - index}: {item.toFixed(3)} ms</Text>
                 )}
             />
-            <Pressable style={styles.button} onPress={startSavingAndLoading}>
-                <Text style={{color: 'white'}}>Benchmark durchführen</Text>
-            </Pressable>
         </View>
     );
 };

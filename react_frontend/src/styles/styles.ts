@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        marginVertical: 100,
         marginHorizontal: 20,
     },
     button: {
@@ -45,4 +44,7 @@ export const styles = StyleSheet.create({
         color: "red",
         marginTop: 16,
     },
+    text: {
+        color: "white"
+    }
 });
