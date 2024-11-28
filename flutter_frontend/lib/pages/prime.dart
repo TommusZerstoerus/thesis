@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_frontend/helper.dart'; // Für calculateMean und calculateMedian
-import '../config.dart'; // Stelle sicher, dass du den richtigen Import für die Konfiguration hast
+import 'package:flutter_frontend/helper.dart';
+import '../config.dart';
 
 class PrimeScreen extends StatefulWidget {
   const PrimeScreen({super.key});
