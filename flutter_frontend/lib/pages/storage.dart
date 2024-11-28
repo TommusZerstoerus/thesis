@@ -64,6 +64,11 @@ class StorageBenchmarkState extends State<StorageScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: startSavingAndLoading,
+              child: const Text('Benchmark durchführen'),
+            ),
+            const SizedBox(height: 16),
             const Text('Storage Benchmark', style: TextStyle(fontSize: 20)),
             Text('Median: ${median.toStringAsFixed(3)} ms'),
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
@@ -79,10 +84,6 @@ class StorageBenchmarkState extends State<StorageScreen> {
                   );
                 },
               ),
-            ),
-            ElevatedButton(
-              onPressed: startSavingAndLoading,
-              child: const Text('Benchmark durchführen'),
             ),
           ],
         ),

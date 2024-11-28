@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_frontend/pages/list.dart';
+import 'package:flutter_frontend/pages/form.dart';
 import 'package:flutter_frontend/pages/statemanagement.dart';
 import 'package:flutter_frontend/pages/storage.dart';
 
 import 'animated_cube_screen.dart';
-import 'fibonacci.dart';
+import 'prime.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,16 +42,6 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('List'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SimpleListScreen()),
-                );
-              },
-            ),
-            ListTile(
               title: const Text('Storage'),
               onTap: () {
                 Navigator.push(
@@ -62,12 +52,12 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Fibonacci'),
+              title: const Text('Prime'),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const FibonacciScreen()),
+                      builder: (context) => const PrimeScreen()),
                 );
               },
             ),
@@ -78,6 +68,16 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const StateManagementScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Form'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FormScreen()),
                 );
               },
             )
