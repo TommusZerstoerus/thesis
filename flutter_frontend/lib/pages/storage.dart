@@ -74,13 +74,17 @@ class StorageBenchmarkState extends State<StorageScreen> {
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse', style: TextStyle(fontSize: 18)),
-            Expanded(
+            SizedBox(
+              height: 50,
               child: ListView.builder(
                 itemCount: results.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                        '${results.length - index}: ${results[index].toStringAsFixed(3)} ms'),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(
+                      '${results.length - index}: ${results[index].toStringAsFixed(3)} ms',
+                      textAlign: TextAlign.center,
+                    ),
                   );
                 },
               ),

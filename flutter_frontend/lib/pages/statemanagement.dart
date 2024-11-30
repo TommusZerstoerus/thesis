@@ -61,24 +61,19 @@ class _StateManagementScreenState extends State<StateManagementScreen> {
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse:'),
-            Center(
-              child: SizedBox(
-                height: 50,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _durations.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: Chip(
-                        label: Text(
-                          '${_durations.length - index}: ${_durations[index].toStringAsFixed(3)} ms',
-                        ),
-                      ),
-                    );
-                  },
-                ),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                itemCount: _durations.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(
+                      '${_durations.length - index}: ${_durations[index].toStringAsFixed(3)} ms',
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 16),

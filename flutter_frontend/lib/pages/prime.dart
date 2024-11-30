@@ -75,7 +75,7 @@ class _PrimeScreenState extends State<PrimeScreen> {
             ElevatedButton(
               onPressed: _isLoading ? null : _startCalculation,
               child:
-                  Text(_isLoading ? 'Berechnet...' : 'Benchmark durchführen'),
+              Text(_isLoading ? 'Berechnet...' : 'Benchmark durchführen'),
             ),
             const SizedBox(height: 16),
             if (_result != null)
@@ -87,14 +87,16 @@ class _PrimeScreenState extends State<PrimeScreen> {
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse'),
-            Expanded(
+            SizedBox(
+              height: 50,
               child: ListView.builder(
-                shrinkWrap: true,
                 itemCount: _durations.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(
                       '${_durations.length - index}: ${_durations[index].toStringAsFixed(3)} ms',
+                      textAlign: TextAlign.center,
                     ),
                   );
                 },
