@@ -16,7 +16,7 @@ class _StateManagementScreenState extends State<StateManagementScreen> {
   double? _lastDuration;
 
   void _runBenchmark() {
-    final startTime = DateTime.now();
+    final stopwatch = Stopwatch()..start();
 
     setState(() {
       _items.clear();
@@ -27,9 +27,8 @@ class _StateManagementScreenState extends State<StateManagementScreen> {
     Future.delayed(const Duration(milliseconds: 50), () {
       setState(() {
         _items.clear();
-        final endTime = DateTime.now();
-        final duration =
-            endTime.difference(startTime).inMilliseconds.toDouble();
+        stopwatch.stop();
+        final duration = stopwatch.elapsedMilliseconds.toDouble();
         _lastDuration = duration;
         _durations.insert(0, duration);
       });
@@ -62,16 +61,24 @@ class _StateManagementScreenState extends State<StateManagementScreen> {
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse:'),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _durations.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                      '${_durations.length - index}: ${_durations[index].toStringAsFixed(3)} ms',
-                    ),
-                  );
-                },
+            Center(
+              child: SizedBox(
+                height: 50,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _durations.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Chip(
+                        label: Text(
+                          '${_durations.length - index}: ${_durations[index].toStringAsFixed(3)} ms',
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -80,13 +87,13 @@ class _StateManagementScreenState extends State<StateManagementScreen> {
               runSpacing: 8,
               children: _items
                   .map((item) => Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(item),
-                      ))
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(item),
+              ))
                   .toList(),
             ),
           ],

@@ -12,7 +12,6 @@ class _FormScreenState extends State<FormScreen> {
   bool _isChecked = false;
   DateTime _selectedDate = DateTime.now();
 
-  // Open the date picker
   Future<void> _pickDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -33,10 +32,10 @@ class _FormScreenState extends State<FormScreen> {
       appBar: AppBar(
         title: const Text('Formular'),
       ),
-      body: Center( // Center the content
+      body: Center(
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(maxWidth: 600), // Maximum width of 600
+          constraints: const BoxConstraints(maxWidth: 600),
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +54,6 @@ class _FormScreenState extends State<FormScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              // Checkbox
               Row(
                 children: [
                   const Text("Checkbox:"),
@@ -70,7 +68,6 @@ class _FormScreenState extends State<FormScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              // Date Selection
               const Text("Datumsauswahl:"),
               Text("${_selectedDate.toLocal()}".split(' ')[0]),
               ElevatedButton(
@@ -78,10 +75,8 @@ class _FormScreenState extends State<FormScreen> {
                 child: const Text("Datum wählen"),
               ),
               const SizedBox(height: 16),
-              // Submit Button
               ElevatedButton(
                 onPressed: () {
-                  // Simulating form submission
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {

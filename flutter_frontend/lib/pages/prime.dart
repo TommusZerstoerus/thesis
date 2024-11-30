@@ -17,20 +17,25 @@ class _PrimeScreenState extends State<PrimeScreen> {
   List<int>? _result;
 
   List<int> sieveOfEratosthenes(int limit) {
-    List<bool> primes = List.generate(limit + 1, (_) => true);
-    primes[0] = primes[1] = false;
+    List<bool> array = List<bool>.filled(limit, true);
+    int upperLimit = sqrt(limit).toInt();
+    List<int> output = [];
 
-    for (int i = 2; i <= sqrt(limit).toInt(); i++) {
-      if (primes[i]) {
-        for (int j = i * i; j <= limit; j += i) {
-          primes[j] = false;
+    for (int i = 2; i <= upperLimit; i++) {
+      if (array[i]) {
+        for (int j = i * i; j < limit; j += i) {
+          array[j] = false;
         }
       }
     }
 
-    return List.generate(limit + 1, (index) => primes[index] ? index : -1)
-        .where((index) => index != -1)
-        .toList();
+    for (int i = 2; i < limit; i++) {
+      if (array[i]) {
+        output.add(i);
+      }
+    }
+
+    return output;
   }
 
   void _startCalculation() {
@@ -39,12 +44,12 @@ class _PrimeScreenState extends State<PrimeScreen> {
       _result = null;
     });
 
-    final startTime = DateTime.now();
+    final stopwatch = Stopwatch()..start();
 
     Future.delayed(Duration.zero, () {
       final primeNumbers = sieveOfEratosthenes(primeLimit);
-      final endTime = DateTime.now();
-      final duration = endTime.difference(startTime).inMilliseconds.toDouble();
+      stopwatch.stop();
+      final duration = stopwatch.elapsedMilliseconds.toDouble();
 
       setState(() {
         _result = primeNumbers;
@@ -69,13 +74,15 @@ class _PrimeScreenState extends State<PrimeScreen> {
           children: [
             ElevatedButton(
               onPressed: _isLoading ? null : _startCalculation,
-              child: Text(_isLoading ? 'Berechnet...' : 'Benchmark durchführen'),
+              child:
+                  Text(_isLoading ? 'Berechnet...' : 'Benchmark durchführen'),
             ),
             const SizedBox(height: 16),
             if (_result != null)
               Text('Primzahlen bis $primeLimit: ${_result?.length}'),
             if (_durations.isNotEmpty)
-              Text("Letztes Ergebnis: ${_durations.first.toStringAsFixed(3)} ms"),
+              Text(
+                  "Letztes Ergebnis: ${_durations.first.toStringAsFixed(3)} ms"),
             Text('Median: ${median.toStringAsFixed(3)} ms'),
             Text('Mittelwert: ${mean.toStringAsFixed(3)} ms'),
             const SizedBox(height: 16),
