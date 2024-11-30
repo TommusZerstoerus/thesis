@@ -156,12 +156,12 @@ ggplot(data_prime, aes(x = AxisLabel)) +
   geom_point(aes(y = Flutter), color = "blue", size = 2) +
   geom_path(aes(y = React_Native, color = "React Native"), size = 1) +
   geom_point(aes(y = React_Native), color = "red", size = 2) +
-  labs(title = paste("Duration | Prime | Browser",
+  labs(title = paste("Duration | Prime | Browser | n = 1.000.000",
                      "\nFlutter: Mean =", round(mean_flutter_prime, 2), 
                      "| Median =", round(median_flutter_prime, 2),
                      "\nReact Native: Mean =", round(mean_react_native_prime, 2), 
                      "| Median =", round(median_react_native_prime, 2)),
-       x = "Count)",
+       x = "Run",
        y = "Time (ms)") +
   scale_color_manual(name = "Framework", values = c("Flutter" = "blue", "React Native" = "red")) +
   scale_x_continuous(breaks = seq(0, max(data_prime$AxisLabel), by = 5)) +
@@ -178,12 +178,12 @@ ggplot(data_state, aes(x = AxisLabel)) +
   geom_point(aes(y = Flutter), color = "blue", size = 2) +
   geom_path(aes(y = React_Native, color = "React Native"), size = 1) +
   geom_point(aes(y = React_Native), color = "red", size = 2) +
-  labs(title = paste("Duration | State | Browser",
+  labs(title = paste("Duration | State | Browser | n = 10.000",
                      "\nFlutter: Mean =", round(mean_flutter_state, 2), 
                      "| Median =", round(median_flutter_state, 2),
                      "\nReact Native: Mean =", round(mean_react_native_state, 2), 
                      "| Median =", round(median_react_native_state, 2)),
-       x = "Count",
+       x = "Run",
        y = "Time (ms)") +
   scale_color_manual(name = "Framework", values = c("Flutter" = "blue", "React Native" = "red")) +
   scale_x_continuous(breaks = seq(0, max(data_state$AxisLabel), by = 5)) +
@@ -201,12 +201,12 @@ ggplot(data_storage, aes(x = AxisLabel)) +
   geom_point(aes(y = Flutter), color = "blue", size = 2) +
   geom_path(aes(y = React_Native, color = "React Native"), size = 1) +
   geom_point(aes(y = React_Native), color = "red", size = 2) +
-  labs(title = paste("Duration | Storage | Browser",
+  labs(title = paste("Duration | Storage | Browser | n = 10.000 ",
                      "\nFlutter: Mean =", round(mean_flutter_storage, 2), 
                      "| Median =", round(median_flutter_storage, 2),
                      "\nReact Native: Mean =", round(mean_react_native_storage, 2), 
                      "| Median =", round(median_react_native_storage, 2)),
-       x = "Count",
+       x = "Run",
        y = "Time (ms)") +
   scale_color_manual(name = "Framework", values = c("Flutter" = "blue", "React Native" = "red")) +
   scale_x_continuous(breaks = seq(0, max(data_storage$AxisLabel), by = 5)) +
