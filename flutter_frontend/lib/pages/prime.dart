@@ -88,7 +88,7 @@ class _PrimeScreenState extends State<PrimeScreen> {
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse'),
             SizedBox(
-              height: 50,
+              height: 100,
               child: ListView.builder(
                 itemCount: _durations.length,
                 itemBuilder: (context, index) {

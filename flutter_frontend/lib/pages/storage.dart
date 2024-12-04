@@ -75,7 +75,7 @@ class StorageBenchmarkState extends State<StorageScreen> {
             const SizedBox(height: 16),
             const Text('Letzte Ergebnisse', style: TextStyle(fontSize: 18)),
             SizedBox(
-              height: 50,
+              height: 100,
               child: ListView.builder(
                 itemCount: results.length,
                 itemBuilder: (context, index) {
