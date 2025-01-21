@@ -1,0 +1,71 @@
+\section{Methoden der Softwareentwicklung}
+Die Softwareentwicklung lässt sich in verschiedene Kategorien einteilen. Die Backend-Entwicklung befasst sich mit der Serverseite einer Anwendung. Es werden Anfragen an das Backend geschickt, welches die Anfragen verarbeitet und eine Antwort zurückliefert. Datenbanken, Microservices und weitere diverse Funktionalitäten werden im Backend umgesetzt und sind dadurch strikt vom Frontend getrennt.
+
+\vspace{0.5cm}
+
+Das Frontend beschreibt den Teil einer Anwendung, der auf dem Endgerät läuft und dafür zuständig ist, Eingaben zu verwalten oder Daten vom Backend darzustellen. Die Benutzeroberfläche wird durch verschiedene Elemente repräsentiert, die der Anzeige von Daten dienen oder dem Benutzer die Möglichkeit bieten, mit der Schnittstelle zu interagieren. In dieser Arbeit steht das Frontend im Vordergrund, da der Fokus der behandelten Frameworks in diesem Bereich liegt.
+
+\vspace{0.5cm}
+
+\subsection{Codeebenen}
+\subsubsection{Maschinencode}
+
+Die tiefste Ebene der Programmiersprachen bilden die Maschinensprachen oder Assembler-Sprachen ab. Diese Sprachen werden direkt auf dem Prozessor des Zielsystems interpretiert und ausgeführt. Da verschiedene Prozessoren unterschiedliche Befehle verarbeiten können, muss der Code für das jeweilige Zielsystem ausgelegt sein. Assembler-Sprachen sind also plattformspezifisch und erfordern eine genaue Abstimmung auf das Endgerät.
+
+\vspace{0.5cm}
+
+\subsubsection{Bytecode}
+
+Einige Programmiersprachen verwenden Bytecode, um den geschriebenen Quellcode in eine Zwischensprache zu übersetzen. Dies ermöglicht es, den Code auf verschiedenen Endgeräten laufen zu lassen, ohne ihn anpassen zu müssen. Sprachen wie Java nutzen Bytecode und benötigen eine virtuelle Maschine (z.B.: JVM), die den Zwischencode zur Laufzeit in Maschinensprache für das jeweilige Zielsystem übersetzt.
+
+\vspace{0.5cm}
+
+\subsection{Native Entwicklung - iOS und Android}
+
+Möchte man auf bestimmte Funktionen eines Endgeräts zugreifen, ist eine native Entwicklung erforderlich. Bei Android-Geräten wird häufig Kotlin verwendet, während iOS-Apps in Swift programmiert werden. Native Software greift direkt auf das Betriebssystem zu und muss daher plattformspezifisch sein. Kotlin und Swift bieten leistungsstarke Möglichkeiten, um direkt auf die Hardware und nativen Funktionen der Geräte zuzugreifen.
+
+\vspace{0.5cm}
+
+\subsection{Webbasierte Software}
+
+Die verbreiteste Möglichkeit, ein Frontend zu entwickeln, ist die webbasierte Programmierung. Mit HTML (Hyper Text Markup Language) werden Komponenten entwickelt, die von einem Webbrowser interpretiert und dargestellt werden. HTML implementiert jedoch keine Logik. Um die Benutzeroberfläche mit Funktionen auszustatten, wird JavaScript genutzt, das dynamisch zur Laufzeit kompiliert wird. Um die Benutzeroberfläche zu manipulieren, wird das DOM (Document Object Model) verwendet, das eine Schnittstelle zwischen HTML und JavaScript darstellt.
+
+\vspace{0.5cm}
+
+Frameworks wie Angular, React oder Vue.js erleichtern die Entwicklung von Webanwendungen durch strukturierte Ansätze und die Möglichkeit, wiederverwendbare Komponenten zu erstellen. Diese Frameworks nutzen oft ein virtuelles DOM, das für eine effiziente Aktualisierung und Verwaltung der Benutzeroberfläche sorgt. Das virtuelle DOM ist eine Abstraktion des tatsächlichen DOMs und ermöglicht es, Änderungen an der Benutzeroberfläche schneller und effizienter zu verarbeiten. Statt direkt das reale DOM zu manipulieren, wird eine Kopie des DOMs im Speicher gehalten. Wenn sich der Zustand der Anwendung ändert, wird zunächst das virtuelle DOM aktualisiert. Anschließend wird der Unterschied zwischen dem aktuellen und dem vorherigen Zustand des virtuellen DOMs (Reconciliation) berechnet und nur die minimal notwendigen Änderungen auf das echte DOM angewendet. Dies sorgt für eine optimierte Performance und vermeidet unnötige und teure DOM-Manipulationen.
+
+\subsubsection{WebAssembly (Wasm)}
+WebAssembly (Wasm) wurde entwickelt, um eine effiziente, portierbare und sichere Laufzeitumgebung bereitzustellen, die JavaScript ergänzt. Es bietet die Möglichkeit, leistungskritische Anwendungen im Browser auszuführen. WebAssembly basiert auf Bytecode, der in einer binären Form vorliegt und direkt vom Browser interpretiert wird, was eine schnellere Ausführung als bei der Interpretation von JavaScript-Quellcode ermöglicht. Es ist möglich, WebAssembly von Hand zu programmieren, aber meistens wird eine Sprache zu WebAssembly kompiliert, hierzu zählen C, C++, Rust, Go und Dart in ausgewählten Fällen. Durch die Umwandlung in eine binäre Befehlsform wird eine Performance erreicht, die nahezu der nativen Geschwindigkeit entspricht. WebAssembly zeigt in bestimmten Szenarien eine bis zu 17,24 \% schnellere Performance. Darüber hinaus ist auch die Energieeffizienz deutlich besser, mit einer Einsparung von ca. 30,69 \% im Vergleich zu JavaScript 
+\cite{WebAssemblyVsJavaScript}
+
+\subsubsection*{Vorteile webbasierter Software}
+
+- Funktioniert in jedem Webbrowser auf jedem Endgerät \\
+- Breit gefächertes Expertenwissen \\
+- Viele Frameworks und Bibliotheken erleichtern die Arbeit
+
+\subsubsection*{Nachteile webbasierter Software}
+
+- Kompilierung nur durch den Webbrowser \\
+- Fehlende Möglichkeit, spezifische Funktionen des Endgeräts zu nutzen \\
+- Geringere Performance \\
+- Fehlende Sicherheit durch sichtbaren Code
+
+\subsection{Cross-Plattform Entwicklung}
+
+Cross-Plattform-Entwicklung ermöglicht es, einen Quellcode zu schreiben, der auf verschiedenen Endgeräten läuft. Dies spart Zeit und Kosten, da nicht für jedes Betriebssystem ein separater Code entwickelt werden muss. Frameworks wie React Native und Flutter erlauben es, den Quellcode in die native Sprache des Zielsystems zu übersetzen, was die Leistung verbessert und den Zugriff auf native Funktionen ermöglicht.
+
+\subsubsection*{Vorteile der Cross-Plattform-Entwicklung}
+
+- Zeitersparnis \\
+- Wiederverwendbarkeit des Codes \\
+- Ähnliches Design wie bei nativen Komponenten \\
+- Leichtere Instandhaltung und Einbindung neuer Updates \\
+
+\subsubsection*{Nachteile der Cross-Plattform-Entwicklung}
+
+- Vereinzelt fehlende native Funktionen \\
+- Größere kompilierte Apps auf den Endgeräten \\
+- Potenzielle Einbußen in der Leistung
+
+Aufgrund der steigenden Popularität von Cross-Plattform-Frameworks und der Vielzahl an Vorteilen werden im Folgenden zwei der bekanntesten Frameworks, Flutter und React Native, näher betrachtet.

@@ -1,0 +1,30 @@
+\section{Flutter im Detail}
+Flutter ist ein von Google entwickeltes Cross-Plattform-Framework. Es wurde erstmalig 2017 als Open-Source-Software veröffentlicht. Flutter nutzt eine eigene Architektur beim Aufbau der Software. Es werden Widgets genutzt, um Darstellung, Logik und Interaktionen innerhalb eines Objektes zu vereinen. Vorgefertigte Komponenten erleichtern den Entwicklungsprozess, indem sie häufig verwendete Elemente wie Schaltflächen, Texte, Checkboxen usw. vordefinieren. Diese Widgets orientieren sich in ihrem Design an den Richtlinien der jeweiligen Zielsysteme, wie z. B. Material Design für Android oder Cupertino Design für iOS. Flutter nutzt als Programmiersprache \textit{Dart}, die von Google entwickelt wurde und eine moderne Alternative zu JavaScript darstellt.
+
+\vspace{0.5cm}
+
+Flutter verfolgt bei der Kompilierung einen anderen Ansatz als React Native, um eine bestmögliche Performance zu erreichen. Der Dart-Code wird zu nativem Maschinencode kompiliert (Ahead-of-Time), anstatt die UI-Komponenten in native Komponenten umzuwandeln. Stattdessen verwendet Flutter die Skia-Rendering-Engine, um die Benutzeroberfläche direkt zu rendern. Dieser Ansatz ermöglicht eine konsistente Leistung und gibt Flutter die volle Kontrolle darüber, wie Komponenten dargestellt und miteinander interagieren. Während der Entwicklung kommt die Dart Virtual Machine (DVM) zum Einsatz, die Funktionen wie Hot Reload unterstützt. Im Produktionsmodus wird jedoch ausschließlich nativ kompilierter Code verwendet, was zu einer flüssigen und leistungsstarken Benutzererfahrung führt.
+
+\vspace{0.5cm}
+
+Der kompilierte Code für die Grafik-Rendering-Engine wird bei Android mit dem NDK (\textit{Native Development Kit}) und bei iOS mit LLVM kompiliert. Während der Entwicklung verwendet Flutter die Dart VM mit \textit{Just-in-Time} (JIT) Kompilierung, was Funktionen wie \textit{Hot Reload} ermöglicht. Dieses Feature erlaubt es, Änderungen im Quellcode nahezu sofort in der Entwicklungsumgebung sichtbar zu machen, ohne die Anwendung neu zu starten. Die AOT-Kompilierung erstellt eine APK (für Android) oder IPA (für iOS), welche für die Veröffentlichung und Installation auf den jeweiligen Endgeräten genutzt werden kann.
+
+\vspace{0.5cm}
+
+\textit{Dart Web} ermöglicht die Kompilierung für das Web. Der Dart-Quellcode wird wahlweise in JavaScript oder WebAssembly übersetzt, wodurch er im Browser ausgeführt werden kann. Für das Darstellung stehen zwei Ansätze zur Verfügung: der HTML-Renderer und das CanvasKit. Der HTML-Renderer setzt auf JavaScript, um HTML- und CSS-Elemente zu generieren, während das CanvasKit den Dart-Code in WebAssembly kompiliert, um eine GPU-beschleunigte Darstellung über WebGL zu ermöglichen. Beide Optionen bieten Entwicklern Flexibilität, je nach Anforderungen ihrer Anwendung.
+
+\vspace{0.5cm}
+
+Die \textit{Dart SDK} stellt die nötigen Command-line-Tools zur Verfügung, um die Entwicklung zu erleichtern. Dazu gehört unter anderem der \textit{Linter}, der \textit{Dart pub Package Manager} und viele weitere Funktionen.
+
+\vspace{0.5cm}
+
+Der Zugriff auf native Funktionen des Endgeräts in Flutter erfolgt über \textit{Method Channels}. Flutter selbst ist plattformunabhängig und bietet daher keinen direkten Zugriff auf system- oder gerätespezifische APIs. Um dennoch auf native Funktionen wie die Kamera oder Galerie zugreifen zu können, wird ein sogenannter \textit{Method Channel} genutzt.
+
+\vspace{0.5cm}
+
+Ein \textit{Method Channel} ermöglicht die Kommunikation zwischen dem Dart-Code von Flutter und dem nativen Code der jeweiligen Plattform (Android oder iOS). Dazu muss ein Kanal erstellt werden, der als Brücke zwischen dem Flutter-Frontend und den API-Funktionen des Endgeräts fungiert. Der Dart-Code sendet Anfragen über diesen Kanal und der native Code antwortet, indem er die entsprechenden Betriebssystemfunktionen aufruft.
+
+\vspace{0.5cm}
+
+Beispielsweise wird bei der Auswahl eines Bildes über den \textit{Method Channel} eine Anfrage an das Endgerät gesendet, die die native Funktion zum Öffnen der Galerie aufruft. Nach der Auswahl eines Bildes wird dieses zurückgesendet und kann im Flutter-Quellcode verwaltet und angezeigt werden.

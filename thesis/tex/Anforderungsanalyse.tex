@@ -1,0 +1,38 @@
+\section{Anforderungsanalyse}
+
+Diese Arbeit verfolgt das Ziel, einen Vergleich der Leistung von React Native und Flutter durchzuführen. Der Vergleich wird durch verschiedene Benchmarks getätigt, welche eine konstante und vergleichbare Bewertung der Frameworks ermöglichen. Es werden praxisnahe Anforderungen an die Frameworks gestellt, welche die Darstellung von Elementen und die Nutzung der nativen Funktionen auf verschiedenen Endgeräten testen. Die fundamentale Forschungsfrage der Arbeit lautet:
+
+\textit{Welche messbaren Unterschiede in der Darstellungsleistung ergeben sich im Vergleich zwischen Flutter und React Native in modernen Cross-Plattform-Anwendungen?}
+
+Daraus lassen sich folgende Unterfragen ableiten:
+
+\begin{enumerate}
+    \item Wie unterscheiden sich React Native und Flutter in Render- und Rechenleistung bei typischen Entwicklungsaufgaben?
+    \item Gibt es Unterschiede der Leistung auf verschiedenen Endgeräten?
+    \item Welches Framework ist für die alltägliche Praxis im Hinblick auf die Leistung attraktiver?
+\end{enumerate}
+
+\subsection{Auswahl der Benchmarks}
+
+Es wird ein Benchmark genutzt, welcher die Darstellung von verschiedenen Elementen mithilfe von Animationen beinhaltet. Es wurden Tests gewählt, welche die Darstellung von Elementen, komplexeren Animationen, die Rechenleistung, die Zustandsverwaltung und die Funktion von nativen Methoden überprüfen. Die Tests werden mit einem Chromium-basierten Browser und einem emulierten Android-Gerät durchgeführt. Zum Schluss werden die Messwerte jedes Benchmarks in einem Diagramm dargestellt, um einen optischen Vergleich der Resultate zu erhalten.
+
+\subsubsection*{Würfel}
+
+Es wird eine Anzahl an Würfeln auf dem Endgerät dargestellt. Diese Würfel sind in einem durchgehenden Farbwechsel und sie rotieren um ihre eigene Achse. Ebenfalls bewegen sie sich stetig zu zufälligen Positionen innerhalb des Bildschirms. Es gibt zwei verschiedene Durchführungen, eine mit 100 dargestellten Würfeln und eine mit 1000 Würfeln. Es wird festgehalten, wie viele Frames pro Sekunde berechnet werden konnten. Die Messung erfolgt im Browser über den Chromium Performance Monitor innerhalb der DevTools. Dort lässt sich die Zeit ablesen, die es gebraucht hat, um einen einzelnen Frame darzustellen, wodurch sich die Frames pro Sekunde (FPS) ausrechnen lassen. Auf dem Android-Gerät gibt es einen eingebauten Performance Monitor, welcher mir direkt die FPS anzeigt.
+
+\subsubsection*{Speicher}
+
+Ein weiterer Praxisfall ist das Speichern von großen Daten auf den jeweiligen Plattformen. Hierbei wird simuliert, dass eine große Menge an Daten im JSON-Format gespeichert wird, daraufhin geladen wird und in ein Objekt geparsed wird. Es wird hierbei die Zeitmessung gestartet, sobald das Speichern beginnt und endet mit dem erfolgreichen Parsen der Daten in ein Objekt.
+
+\subsubsection*{Sieb des Eratosthenes}
+
+Die Leistung der kompilierten Sprache wird durch das Sieb des Eratosthenes geprüft. Hierbei wird berechnet, wie viele Primzahlen sich bis zur gegebenen Zahl n befinden. Dieser Benchmark erfordert einiges an Rechenleistung und dient daher als guter Richtwert für die reine rechnerische Leistung der Anwendung. Die Messung umschließt die Dauer der Berechnung der Menge an Zahlen.
+
+\subsubsection*{State Management}
+
+Für viele Entwickler ist das State Management von großer Bedeutung in der Entwicklung einer Anwendung, weil darüber verschiedene Zustände, die in einer Anwendung auftreten, verwaltet werden. In diesem Test wird einem State, welcher eine Liste aus Strings beinhaltet, eine große Anzahl an Objekten hinzugefügt, welche daraufhin angezeigt werden und danach wieder aus dem State entfernt werden, damit sie verschwinden. Gemessen wird die Zeit zwischen dem Zeitpunkt, zu dem die Elemente dem Zustand hinzugefügt werden, und dem Zeitpunkt, zu dem sie aus dem Zustand entfernt werden.
+
+\subsection{Vergleichbarkeit der Benchmarks}
+
+Die Benchmarks sind darauf ausgelegt, vergleichbare Messwerte zu produzieren. Die Bedingungen und die Umgebung sind für beide plattformübergreifenden Frameworks identisch. Über einen zeitlichen Verlauf oder über die Anzahl der Durchführungen lassen sich die Messwerte eines einzelnen Durchlaufs chronologisch ordnen. Die Messungen werden insgesamt 3 Mal durchgeführt, wodurch bei jeder Durchführung eine festgelegte Anzahl an Messwerten produziert wird. Es wird festgehalten, wie viele Bilder pro Sekunde dargestellt werden können oder wie lange es dauert, bis eine Darstellung fertig gerendert ist. 
+

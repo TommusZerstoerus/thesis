@@ -1,0 +1,81 @@
+\section{Implementierung}
+\subsection{Expo}
+
+Bei der Entwicklung der Benchmarks in React Native wurde Expo genutzt, um die Implementierung zu erleichtern. Expo ist ein Framework, welches den Umgang mit React Native verbessert. Es liefert Tools fürs Debugging, erleichtert das Bauen und Starten von nativen Apps und bietet eine große Auswahl an Bibliotheken.
+
+\subsection{Grundlegendes}
+
+Die Implementierung ist darauf ausgelegt, auf beiden Frameworks nahezu identisch zu sein. Es werden Packages genutzt, welche von den Frameworks direkt zur Verfügung gestellt wurden oder welche von den Entwicklern empfohlen wurden. Sowohl die React Native App als auch die Flutter App wurden auf dem Emulator via APK Export installiert, um jeglichen Leistungsverlust durch den Entwicklermodus zu vermeiden. Im Web werden die Anwendungen als exportiertes Kompilat getestet, damit keine Entwicklerumgebung das Ergebnis verfälschen könnte.
+
+\subsection{Testumgebung}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{System} & \textbf{Version} & \textbf{Besonderheiten} \\
+\hline
+Windows & Chromium basierter Browser & Blink / V8 \\
+\hline
+Android Emulator & Pixel 8 mit API 35 & 4 CPU Kerne, 4 GB RAM \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Würfel}
+
+\subsection*{React Native}
+
+Es wurde eine View über den gesamten Anzeigebereich gestaltet. In dieser View wird eine Anzahl an Würfel-Komponenten gerendert. Ein Array mit einer Größe von der festgelegten Anzahl an darzustellenden Würfeln legt die Anzahl der dargestellten Elemente fest. Die Darstellung eines einzelnen Würfels wird durch eine separate Komponente realisiert. 
+
+Eine \texttt{Animated View}, bei der die Argumente Position, Rotation und Hintergrundfarbe ständig verändert werden, umfasst eine View, in der sich ein Text mit dem Unicode eines Würfels befindet, der dauerhaft die Farbe wechselt. Alle 2 Sekunden wird die Rotation des Würfels auf den Ursprung gesetzt, sowie eine neue Zielposition bestimmt und eine neue Farbe festgelegt. Die Argumente Position und Rotation werden über einen \texttt{useState} verwaltet. 
+
+In einem \texttt{useEffect} wird dafür gesorgt, dass beim Rendern der Komponente die wichtigen Funktionen aufgerufen werden. Die Bewegung des Würfels wird durch die Funktion \texttt{animatePosition} ermöglicht, welche zufällige \(x\) und \(y\) Werte bestimmt und diese durch \texttt{Animated.timing} in einem flüssigen Übergang darstellt. 
+
+Die Rotation wird ebenfalls durch \texttt{Animated.timing} verwaltet, wobei die Rotation bei dem Wert 0 startet und bei 1 endet. Durch \texttt{rotation.interpolate} wird im späteren Verlauf des Codes festgelegt, dass der Wert 0 für \(0^\circ\) steht und 1 für \(360^\circ\). Dies sorgt für eine vollständige Rotierung um die eigene Achse in einem flüssigen Übergang. Farblich ändert sich der Würfel, indem ein Array aus den vorhandenen Farben angelegt wird und bei dem Aufruf durch das Intervall ein neuer Index bestimmt wird. Der jeweilige Farbeintrag aus dem Array wird ausgelesen und der View zugeschrieben.
+
+\subsection*{Flutter}
+
+Die View wird so gestaltet, dass eine festgelegte Anzahl an animierten Würfeln auf dem Bildschirm dargestellt wird. Die Anzahl der Würfel wird durch eine Liste generiert. Jeder Würfel wird durch eine Komponente realisiert, die sowohl in Farbe als auch in Position und Rotation animiert ist. 
+
+Ein \texttt{AnimationController} steuert die Animationen der Würfel, die alle 2 Sekunden wiederholt werden. Die Würfel ändern ihre Farbe kontinuierlich, indem ein \texttt{ColorTween} verwendet wird, um zwischen Farben aus einer vordefinierten Liste von Farben zu wechseln. Die Position jedes Würfels wird zufällig bestimmt, wobei der Ausgangs- und Zielort innerhalb des Bildschirms zufällig gesetzt wird. 
+
+Die Rotation erfolgt kontinuierlich über den Animationscontroller und befindet sich zwischen \(0^\circ\) und \(360^\circ\). Die Animation wird in einer \texttt{AnimatedBuilder}-Komponente gerendert, die sicherstellt, dass der Würfel sich sowohl in Position, Rotation als auch Farbe flüssig ändert.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/code/cube_react.png}
+        \caption{Codeauszug React Native}
+    \end{minipage} \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/code/cube_flutter.png}
+        \caption{Codeauszug React Native}
+    \end{minipage}
+\end{figure}
+
+\subsection{Storage}
+
+\subsection*{React Native}
+Es wird ein Array von Objekten erstellt, das aus String-Attributen besteht, aus einem Attribut besteht und diese Objekte werden vom Package \texttt{faker} mit Beispielwörtern gefüllt. \texttt{Faker} erzeugt algorithmisch Beispieldaten, welche für den Test optimal sind, da sie künstlich eine große Menge an Daten abbilden. Der Async Storage wird in React Native dafür genutzt, um anhand eines Keys ein Value-Objekt zu speichern. Als Speicherort wird im Browser der Localstorage genutzt und auf dem Android-Gerät wird eine SQLite-Datenbank erzeugt. Zu Beginn des Tests wird der Async Storage komplett geleert und daraufhin wird das große Objekt unter dem Key \texttt{jsonData} gespeichert. Im nächsten Schritt wird dieses Objekt, welches als JSON-String gespeichert wurde, ausgelesen und in das ursprüngliche Objekt geparsed. Sobald das ursprüngliche Array aus den Objekten erzeugt wurde, endet die Zeitmessung und die Dauer wird ermittelt.
+
+\subsection*{Flutter}
+Hier ist die Funktionsweise des Speicherns ein wenig anders. Im Browser speichert Flutter die Daten ebenfalls im LocalStorage, jedoch auf dem Android-Gerät greift Flutter auf das Interface des Android-Gerätes namens Shared Preferences zu. Dies erlaubt ebenfalls eine Speicherung von einem Datentypen anhand eines Keys, jedoch wird keine eigenständige Datenbank generiert. 
+
+\subsection{Sieb des Eratostehenes}
+
+\subsection*{React Native \& Flutter}
+Dieser Benchmark beginnt nach dem Starten mit der Zeitmessung. Im nächsten Schritt wird ein Timeout gesetzt, da dies dafür sorgt, dass die Berechnung nicht im Hintergrund passiert, sondern der Main Thread blockiert wird und für die Berechnung genutzt wird. Dies verhindert ein asynchrones Verhalten und vermeidet Fehler bei der Messung sowie ein langsameres Resultat bei der Berechnung. Die Berechnung besteht aus einem Algorithmus, welcher eine Liste der Länge der gegebenen Zahl \texttt{n} entspricht. Alle Felder werden vorerst mit \texttt{true} vorbelegt. Nun werden die Primzahlen ausgesiebt, wozu die Vielfachen von 2 und alle weiteren Vielfachen der kommenden Zahlen zählen. Zahlen, die keine Vielfachen sind, bleiben weiterhin als true markiert und werden in ein separates Array namens Output zusammengefasst. Daraufhin wird die Länge des Output Arrays angezeigt, um die korrekte Ausführung des Algorithmus zu verifizieren, und die Zeitmessung endet. In Bezug auf den Flutter Code lässt sich festhalten, dass dieser keinen funktionalen Unterschied zum React Native Code aufweist.
+
+\subsection{State Management}
+
+\subsection*{React Native}
+Hier wird getestet, wie schnell die Anwendung mit einem Wechsel diverser Zustände umgehen kann. Es wird ein useState erstellt, welcher ein Array aus Strings beinhaltet. Nach dem Starten des Benchmarks wird der State mit einem Array befüllt. Daraufhin wird ein Timeout gesetzt, welcher wiederum dafür sorgt, dass der Mainthread für die Verarbeitung genutzt wird. Dieser Timeout hat eine Verzögerung von 50ms, welche durch die Funktionsweise und die Adaption des Codes von Flutter vorhanden ist. Durch den useState werden kurz alle Elemente angezeigt, nachdem sie gesetzt wurden und danach werden sie wieder aus dem State entfernt. Die Zeitmessung endet nach dem erfolgreichen Leeren des Zustandes.
+
+\subsection*{Flutter}
+Der Aufbau des Benchmarks in Flutter funktioniert nahezu identisch zu dem in React Native. Dabei ist zu beachten, dass in Flutter alle Elemente innerhalb eines StatefulWidget automatisch einen Zustand verwalten, ähnlich wie useState in React Native. Änderungen am Zustand eines StatefulWidget führen zu einem Rerendering des Widgets. Die Zeitverzögerung im Timeout ist in Flutter notwendig, da sonst das Ändern des States in den Hintergrund gerät und die Zeiterfassung schon beendet wird, während des State noch befüllt ist.
+
+\newpage
+\subsection{Auswertung der Messergebnisse}
+Die erhaltenen Ergebnisse werden in einer CSV-Datei festgehalten. Aus allen drei Durchläufen wird der Durchschnittswert für jeden Messpunkt berechnet, um diesen grafisch darzustellen. Die grafische Darstellung erfolgt auf Grundlage der CSV-Dateien in R, einer Programmiersprache, die zur Visualisierung von Daten genutzt werden kann. Auf der Y-Achse des Diagramms wird der gemessene Wert, sei es die FPS (Frames per Second) oder eine gemessene Zeitspanne, abgebildet. Auf der X-Achse wird der zeitliche Verlauf oder die Nummer des Durchlaufs dargestellt. Im Diagramm wird eine rote Linie für React Native und eine blaue Linie für Flutter eingezeichnet.

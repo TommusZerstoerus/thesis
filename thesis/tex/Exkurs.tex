@@ -1,0 +1,14 @@
+\section{Exkurs}
+\subsection{Anpassung der Frameworks}
+Beide Frameworks befinden sich zudem in ständiger Weiterentwicklung. So wurde bei React Native die Bridge, die bisher die Kommunikation zwischen JavaScript und der nativen Plattform verwaltet hat, durch die neue Fabric-Architektur ersetzt \cite{ReactNativeNewArchitecture}. Dies führt zu einer effizienteren und direkteren Ausführung nativer Module. Diese Änderungen sowie weitere Optimierungen, wie etwa ein gezieltes State-Management oder die Wahl effizienter Speicherlösungen, können signifikanten Einfluss auf die Performance haben.
+
+\vspace{0.5cm}
+
+Dazu gehört beispielsweise die Möglichkeit, Skia \cite{ReactNativeSkia} als Rendering-Engine in React Native zu integrieren oder eine andere Technik zu verwenden, um den Zustand in Flutter granular und performant zu gestalten \cite{FlutterBloc}.
+
+\vspace{0.5cm}
+
+Die verwendeten Bibliotheken sind nicht maßgeblich die effizientesten für die getesteten Anwendungsfälle. Es wurden Bibliotheken verwendet, die sehr häufig in der Entwicklung mit den jeweiligen Frameworks verwendet wurden oder von den Entwicklern empfohlen wurden.
+
+\subsection{Unterschiede im Design}
+Ein weiterer nicht messbarer Punkt der beiden Frameworks ist die Darstellung im UI. Hierbei gibt es gravierende Unterschiede, denn React Native ist in der Lage die nativen Komponenten des Endgeräts darzustellen. Dies ermöglicht mit einer einheitlichen Codegrundlage, dass die App auf einem Android-Gerät optisch sich stark unterscheidet im Vergleich zum iOS-Gerät. Flutter nutzt ein eigenes Design und bildet dieses auf allen Endgeräten ab. Im Anhang habe ich ein Formular entwickelt, welches einen Teil der essenziellen Elemente darstellt und auf verschiedenen Endgeräten getestet.

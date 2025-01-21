@@ -1,0 +1,41 @@
+\section{React Native im Detail}
+React Native wurde von Meta Platforms Inc. (ehemals Facebook) entwickelt und erschien im Jahr 2015. Die Handhabung von React Native ist sehr ähnlich zu der von klassischem React für die webbasierte Softwareentwicklung. Der komponentenbasierte Ansatz beim Entwickeln und die Möglichkeit, JavaScript oder TypeScript zu verwenden, bieten erfahrenen Entwicklern eine vertraute Umgebung. Durch den Einsatz von JavaScript gibt es eine große Auswahl an Bibliotheken und eine große Community.
+
+\vspace{0.5cm}
+
+React Native verwendet weder den DOM noch einen virtuellen DOM. Stattdessen werden React-Komponenten in native UI-Komponenten der jeweiligen Plattform übersetzt (z. B. UIView auf iOS oder View auf Android). Dies ermöglicht eine plattformnative Darstellung der Benutzeroberfläche, während die zugrunde liegende Logik weiterhin in JavaScript implementiert wird.
+
+Der JavaScript-Code wird nicht direkt in nativen Code kompiliert, sondern in einer JavaScript-Engine (z. B. Hermes, JavaScriptCore oder V8) ausgeführt. Die Kommunikation zwischen der JavaScript-Logik und der nativen Plattform erfolgt über eine sogenannte Bridge.
+
+\vspace{0.5cm}
+
+Die Bridge dient als bidirektionale Verbindung, über die Nachrichten zwischen JavaScript und der nativen Ebene ausgetauscht werden. Diese Nachrichten definieren, welche Aktionen ausgeführt werden sollen, und liefern die dazugehörigen Anweisungen. Ein typisches Beispiel ist das Rendern einer View: Die JavaScript-Seite sendet eine Nachricht an die native Seite, die daraufhin die entsprechende UI-Komponente erstellt und darstellt.
+
+\vspace{0.5cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/reactnative-bridge.png}
+    \caption{Visuelle Darstellung der Brücke \cite{ReactNativeBridge}}
+\end{figure}
+
+Umgekehrt funktioniert die Kommunikation genauso: Wenn in der View eine Eingabe erfolgt, wird über die Bridge eine Nachricht an die JavaScript-Seite gesendet. Diese Informationen werden asynchron übertragen und von der Bridge zwischen den beiden Parteien verwaltet. Die Asynchronität trägt dazu bei, dass Views flüssig dargestellt werden können. Ziel ist es, eine Bildwiederholrate von ca. 60 Bildern pro Sekunde zu erreichen. Die tatsächliche Leistung hängt jedoch von mehreren Faktoren ab, unter anderem von der Komplexität des Layouts und der Menge der Nachrichten, die über die Bridge gesendet werden.
+
+\vspace{0.5cm}
+
+Eine zu große Anzahl von Nachrichten über die Bridge kann zu einem so genannten „Bridge-Stau“ führen, der die Performance beeinträchtigt. Um dies zu minimieren, wird häufig die JavaScript-Engine \textit{Hermes} verwendet. Hermes kompiliert JavaScript in Bytecode, der direkt auf dem Endgerät ausgeführt wird, was die Laufzeit- und Startleistung verbessert. Wenn Hermes deaktiviert ist, verwendet React Native \textit{JavaScriptCore}, die Standard-JavaScript-Engine von iOS. JavaScriptCore hat jedoch den Nachteil, dass es keine \textit{JIT}-Kompilierung auf iOS-Geräten unterstützt, was die Performance beeinträchtigen kann.
+
+\vspace{0.5cm}
+
+Ein weiterer wichtiger Bestandteil des Kompilierungs- und Bauprozesses ist der \textit{Metro-Bundler}, der die JavaScript-Dateien bündelt und für die Ausführung auf dem jeweiligen Endgerät vorbereitet.
+
+\vspace{0.5cm}
+
+React Native verwendet native Build-Systeme, um die Applikationen für die jeweiligen Endgeräte zu bauen. Dabei nutzt Android das Build-System \textit{Gradle}, während iOS auf \textit{Xcode} zurückgreift. Der Metro-Bundler bündelt die JavaScript-Dateien zu einer einzigen Datei, die zur Laufzeit von einer JavaScript-Engine (z. B. Hermes oder JavaScriptCore) interpretiert wird. Diese gebündelten Dateien werden zusammen mit den nativen Komponenten der App in eine \textit{APK} für Android oder eine \textit{IPA} für iOS verpackt und signiert.
+
+\vspace{0.5cm}
+
+React Native bietet von Haus aus keine Möglichkeit, Anwendungen für das Web zu erstellen. Hierfür kann eine zusätzliche Bibliothek genutzt werden, die die Möglichkeit bietet, den React-Quellcode für den Browser zu nutzen. Diese Bibliothek übersetzt React-Native-Komponenten in standardmäßige React-DOM-Komponenten, sodass sie in Webbrowsern lauffähig sind. Der Build-Prozess ist hierbei identisch zu der Kompilierung von klassischem React-Code.
+
+Ein Auszug der Plattformen, für die React Native verwendet werden kann:
+\url{https://reactnative.dev/docs/out-of-tree-platforms}
