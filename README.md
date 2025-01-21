@@ -8,9 +8,10 @@ In dieser Bachelorarbeit wird ein Vergleich zwischen den Cross-Plattform-Framewo
 
 Die Analyse umfasst folgende Benchmarks:
 
-1. **Rendering von großen Listen**
-2. **Uploadzeiten für Bilder**
-3. **Allgemeine Performance-Tests**
+1. **Rendering und Animation von vielen Elementen**
+2. **Primzahlberechnung nach dem Sieb des Erasthenes**
+3. **Aufwendiges State Management**
+4. **Speichern von großen Datenmengen auf dem Endgerät**
 
 ## Startanleitung
 
