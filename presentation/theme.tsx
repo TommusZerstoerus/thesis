@@ -11,5 +11,8 @@ export const theme: SpectacleThemeOverrides = {
     fonts: {
         header: '"Open Sans Condensed", Helvetica, Arial, sans-serif',
         text: '"Open Sans Condensed", Helvetica, Arial, sans-serif'
+    },
+    fontSizes: {
+        text: "32px",
     }
 };

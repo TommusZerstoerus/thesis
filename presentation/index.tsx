@@ -1,19 +1,15 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import {
-    Appear,
-    Box,
-    CodeSpan,
-    Deck,
-    DefaultTemplate,
-    FlexBox,
-    Heading,
-    ListItem,
-    Slide,
-    Text,
-    UnorderedList
-} from 'spectacle'
+import {Box, Deck, DefaultTemplate, FlexBox, Heading, Slide, Text,} from 'spectacle'
 import {theme} from "./theme";
+import {Einfuehrung} from "./chapter/Einfuehrung";
+import {MethodenDerSoftwareentwicklung} from "./chapter/Methoden-der-Softwareentwicklung";
+import {ReactNativeImDetail} from "./chapter/React-Native-im-Detail";
+import {FlutterImDetail} from "./chapter/Flutter-im-Detail";
+import {Anforderungsanalyse} from "./chapter/Anforderungsanalyse";
+import {Implementierung} from "./chapter/Implementierung";
+import {Exkurs} from "./chapter/Exkurs";
+import {Fazit} from "./chapter/Fazit";
 
 const Presentation = () => (
     <Deck theme={theme} template={() => <DefaultTemplate color={"#000000"}/>}>
@@ -32,76 +28,14 @@ const Presentation = () => (
                 <Text fontSize={25}>Hochschule Flensburg</Text>
             </FlexBox>
         </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
-        <Slide backgroundColor="quaternary">
-            <FlexBox width="100%">
-                <Heading fontSize="h2">Grundlegender Mist</Heading>
-            </FlexBox>
-            <UnorderedList>
-                <ListItem>
-                    <CodeSpan>Hackerman</CodeSpan>
-                </ListItem>
-            </UnorderedList>
-        </Slide>
+        <Einfuehrung/>
+        <MethodenDerSoftwareentwicklung/>
+        <ReactNativeImDetail/>
+        <FlutterImDetail/>
+        <Anforderungsanalyse/>
+        <Implementierung/>
+        <Exkurs/>
+        <Fazit/>
     </Deck>
 );
 
