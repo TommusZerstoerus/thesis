@@ -1,47 +1,77 @@
-import {CodeSpan, FlexBox, Heading, Image, ListItem, Slide, UnorderedList} from "spectacle";
+import {Text, FlexBox, Heading, Image, ListItem, Slide, UnorderedList} from "spectacle";
 import React from "react";
 
 export const ReactNativeImDetail = () => {
+    const transitionDown = {
+        from: {
+            opacity: 1,
+            transform: 'translateY(0%)'
+        },
+        enter: {
+            opacity: 1,
+            transform: 'translateY(0%)'
+        },
+        leave: {
+            opacity: 0,
+            transform: 'translateY(-100%)'
+        }
+    };
+
+    const transitionUp = {
+        from: {
+            opacity: 0,
+            transform: 'translateY(100%)'
+        },
+        enter: {
+            opacity: 1,
+            transform: 'translateY(0%)'
+        },
+        leave: {
+            opacity: 1,
+            transform: 'translateY(100%)'
+        }
+    };
+
     return (
         <>
-            <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+            <Slide transition={transitionDown} backgroundColor="quaternary">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">React Native im Detail</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>2015 durch Meta veröffentlicht</CodeSpan>
+                        <Text>2015 durch Meta veröffentlicht</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Komponentenbasierte Entwicklung</CodeSpan>
+                        <Text>Komponentenbasierte Entwicklung</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Verwendung durch JavaScript/TypeScript</CodeSpan>
+                        <Text>Verwendung von JavaScript/TypeScript</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Kompilierung durch die Bridge in die nativen Elemente</CodeSpan>
+                        <Text>Kompilierung durch die Bridge in die nativen Elemente</Text>
                     </ListItem>
                     <FlexBox>
                         <Image width="500" src="/images/reactnative-bridge.png"></Image>
                     </FlexBox>
                 </UnorderedList>
             </Slide>
-            <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+            <Slide transition={transitionUp} backgroundColor="quaternary">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">React Native im Detail</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>2015 durch Meta veröffentlicht</CodeSpan>
+                        <Text>Asynchrone Kommunikation</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Komponentenbasierte Entwicklung</CodeSpan>
+                        <Text>JavaScript-Engine Hermes/JavaScriptCore</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Verwendung durch JavaScript/TypeScript</CodeSpan>
+                        <Text>Build Systeme für die jeweilige Zielplattform</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Kompilierung durch die Bridge in die nativen Elemente</CodeSpan>
+                        <Text>Ergänzung durch Libraries</Text>
                     </ListItem>
                 </UnorderedList>
             </Slide>

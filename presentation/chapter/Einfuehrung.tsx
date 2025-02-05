@@ -1,4 +1,4 @@
-import { CodeSpan, FlexBox, Heading, Image, ListItem, Slide, UnorderedList } from "spectacle";
+import { Text, FlexBox, Heading, Image, ListItem, Slide, UnorderedList } from "spectacle";
 import React from "react";
 
 export const Einfuehrung = () => {
@@ -28,30 +28,30 @@ export const Einfuehrung = () => {
         },
         leave: {
             opacity: 1,
-            transform: 'translateY(0%)'
+            transform: 'translateY(-100%)'
         }
     };
 
     return (
         <>
             <Slide transition={transitionDown} backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Einführung</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>Verschiedene Arten Software zu entwickeln</CodeSpan>
+                        <Text>Verschiedene Arten Software zu entwickeln</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Endgeräte variieren</CodeSpan>
+                        <Text>Endgeräte variieren</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Leistung und Aufwand schwankt zwischen den Technologien</CodeSpan>
+                        <Text>Leistung und Aufwand schwankt zwischen den Technologien</Text>
                     </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide transition={transitionUp} backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Cross-Plattform-Frameworks</Heading>
                 </FlexBox>
                 <UnorderedList>
@@ -59,7 +59,7 @@ export const Einfuehrung = () => {
                         <Image width="500" src="/images/statista.png" alt="Statista Anzeige Cross Platform Frameworks"/>
                     </FlexBox>
                     <ListItem>
-                        <CodeSpan>Ein Code - Viele Endgeräte</CodeSpan>
+                        <Text>Ein Code - Viele Endgeräte</Text>
                     </ListItem>
                     <FlexBox width="100%" justifyContent="space-between">
                         <Image width="200"

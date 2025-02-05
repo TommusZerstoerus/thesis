@@ -10,6 +10,7 @@ import {Anforderungsanalyse} from "./chapter/Anforderungsanalyse";
 import {Implementierung} from "./chapter/Implementierung";
 import {Exkurs} from "./chapter/Exkurs";
 import {Fazit} from "./chapter/Fazit";
+import {Ergebnisse} from "./chapter/Ergebnisse";
 
 const Presentation = () => (
     <Deck theme={theme} template={() => <DefaultTemplate color={"#000000"}/>}>
@@ -34,6 +35,7 @@ const Presentation = () => (
         <FlutterImDetail/>
         <Anforderungsanalyse/>
         <Implementierung/>
+        <Ergebnisse/>
         <Exkurs/>
         <Fazit/>
     </Deck>

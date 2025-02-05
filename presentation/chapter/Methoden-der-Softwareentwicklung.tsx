@@ -1,5 +1,5 @@
 import {
-    CodeSpan,
+    Text,
     FlexBox,
     Heading,
     ListItem,
@@ -17,112 +17,112 @@ export const MethodenDerSoftwareentwicklung = () => {
     return (
         <>
             <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Methoden der Softwareentwicklung</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>Unterteilung - Frontend und Backend</CodeSpan>
+                        <Text>Unterteilung - Frontend und Backend</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Codeebenen</CodeSpan>
+                        <Text>Codeebenen</Text>
                     </ListItem>
                     <UnorderedList>
                         <ListItem>
-                            <CodeSpan>Maschinenencode</CodeSpan>
+                            <Text>Maschinenencode</Text>
                         </ListItem>
                         <UnorderedList>
                             <ListItem>
-                                <CodeSpan>Tiefste Ebene</CodeSpan>
+                                <Text>Tiefste Ebene</Text>
                             </ListItem>
                             <ListItem>
-                                <CodeSpan>Abhängig von der Architektur des Prozessors</CodeSpan>
+                                <Text>Abhängig von der Architektur des Prozessors</Text>
                             </ListItem>
                         </UnorderedList>
                         <ListItem>
-                            <CodeSpan>Bytecode</CodeSpan>
+                            <Text>Bytecode</Text>
                         </ListItem>
                         <UnorderedList>
                             <ListItem>
-                                <CodeSpan>Zwischensprache</CodeSpan>
+                                <Text>Zwischensprache</Text>
                             </ListItem>
                             <ListItem>
-                                <CodeSpan>Genutzt von virtuellen Maschinen</CodeSpan>
+                                <Text>Genutzt von virtuellen Maschinen</Text>
                             </ListItem>
                         </UnorderedList>
                     </UnorderedList>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Native Entwicklung</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>Abgestimmt auf das Endgerät</CodeSpan>
+                        <Text>Abgestimmt auf das Endgerät</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Direkter Zugriff auf Eigenschaften und Funktion des Gerätes</CodeSpan>
+                        <Text>Direkter Zugriff auf Eigenschaften und Funktion des Gerätes</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Android, iOS, Desktop ...</CodeSpan>
+                        <Text>Android, iOS, Desktop ...</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Diverse mögliche Sprachen zur Umsetzung</CodeSpan>
+                        <Text>Diverse mögliche Sprachen zur Umsetzung</Text>
                     </ListItem>
                     <UnorderedList>
                         <ListItem>
-                            <CodeSpan>Java, Kotlin, Swift, Objective-C, C++, C# ...</CodeSpan>
+                            <Text>Java, Kotlin, Swift, Objective-C, C++, C# ...</Text>
                         </ListItem>
                     </UnorderedList>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Webbasierte Software</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>Kompilierung durch den Browser</CodeSpan>
+                        <Text>Kompilierung durch den Browser</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>HTML, CSS und JavaScript als Bausteine</CodeSpan>
+                        <Text>HTML, CSS und JavaScript als Bausteine</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Zahlreiche Frameworks</CodeSpan>
+                        <Text>Zahlreiche Frameworks</Text>
                     </ListItem>
                     <UnorderedList>
                         <ListItem>
-                            <CodeSpan>Anuglar, React, Vue.js ...</CodeSpan>
+                            <Text>Anuglar, React, Vue.js ...</Text>
                         </ListItem>
                     </UnorderedList>
                     <ListItem>
-                        <CodeSpan>Flexible Nutzung durch den Browser auf nahzu allen Geräten</CodeSpan>
+                        <Text>Flexible Nutzung durch den Browser auf nahzu allen Geräten</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>WebAssembly - Schnelle Ergänzung zu JavaScript </CodeSpan>
+                        <Text>WebAssembly - Schnelle Ergänzung zu JavaScript </Text>
                     </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
-                <FlexBox width="100%">
+                <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Cross-Plattform Entwicklung</Heading>
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <CodeSpan>Flutter und React Native als beliebte Frameworks</CodeSpan>
+                        <Text>Flutter und React Native als beliebte Frameworks</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Geteilte Code Basis für diverse Endgeräte</CodeSpan>
+                        <Text>Geteilte Code Basis für diverse Endgeräte</Text>
                     </ListItem>
                     <ListItem>
-                        <CodeSpan>Zugriff auf gerätspezifische Funktionen</CodeSpan>
+                        <Text>Zugriff auf gerätspezifische Funktionen</Text>
                     </ListItem>
                 </UnorderedList>
                 <Table>
                     <TableHeader>
-                        <TableCell><CodeSpan>Vorteile</CodeSpan></TableCell>
-                        <TableCell><CodeSpan>Nachteile</CodeSpan></TableCell>
+                        <TableCell><Text>Vorteile</Text></TableCell>
+                        <TableCell><Text>Nachteile</Text></TableCell>
                     </TableHeader>
                     <TableBody>
                         <TableRow>
