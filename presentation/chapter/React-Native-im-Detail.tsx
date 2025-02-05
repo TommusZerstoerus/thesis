@@ -22,7 +22,7 @@ export const ReactNativeImDetail = () => {
                         <CodeSpan>Kompilierung durch die Bridge in die nativen Elemente</CodeSpan>
                     </ListItem>
                     <FlexBox>
-                        <Image width="500" src="./images/reactnative-bridge.png"></Image>
+                        <Image width="500" src="/images/reactnative-bridge.png"></Image>
                     </FlexBox>
                 </UnorderedList>
             </Slide>

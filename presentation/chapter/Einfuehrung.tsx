@@ -55,7 +55,9 @@ export const Einfuehrung = () => {
                     <Heading fontSize="h2">Cross-Plattform-Frameworks</Heading>
                 </FlexBox>
                 <UnorderedList>
-                    <Image alt="Statista Anzeige Cross Platform Frameworks"></Image>
+                    <FlexBox>
+                        <Image width="500" src="/images/statista.png" alt="Statista Anzeige Cross Platform Frameworks"/>
+                    </FlexBox>
                     <ListItem>
                         <CodeSpan>Ein Code - Viele Endgeräte</CodeSpan>
                     </ListItem>
