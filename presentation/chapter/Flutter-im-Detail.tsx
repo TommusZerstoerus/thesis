@@ -33,6 +33,7 @@ export const FlutterImDetail = () => {
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Method Channel Implementierung</Heading>
                 </FlexBox>
+                <CodeSpan  fontStyle="italic" fontSize={20}>Flutter Vibration Plugin</CodeSpan>
                 <CodePane language={"dart"}>
                     {`public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "vibration", binaryMessenger: registrar.messenger())
@@ -45,7 +46,6 @@ export const FlutterImDetail = () => {
     registrar.addMethodCallDelegate(instance, channel: channel)
 }`}
                 </CodePane>
-                <CodeSpan fontSize={20}>- Flutter Vibration Plugin</CodeSpan>
             </Slide>
         </>
     )

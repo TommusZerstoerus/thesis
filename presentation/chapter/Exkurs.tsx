@@ -17,6 +17,17 @@ export const Exkurs = () => {
                     </ListItem>
                     <ListItem>
                         <Text>Anpassung der Frameworks</Text>
+                        <UnorderedList>
+                            <ListItem>
+                                React Native Skia
+                            </ListItem>
+                            <ListItem>
+                                Flutter Bloc
+                            </ListItem>
+                            <ListItem>
+                                Auswahl anderer Bibliotheken
+                            </ListItem>
+                        </UnorderedList>
                     </ListItem>
                 </UnorderedList>
             </Slide>

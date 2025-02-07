@@ -1,4 +1,4 @@
-import {Box, FlexBox, Heading, Image, ListItem, Slide, Text, UnorderedList} from "spectacle";
+import {Box, CodeSpan, FlexBox, Grid, Heading, Image, ListItem, Slide, Text, UnorderedList} from "spectacle";
 import React from "react";
 
 export const Ergebnisse = () => {
@@ -8,51 +8,126 @@ export const Ergebnisse = () => {
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">100 Würfel</Heading>
                 </FlexBox>
-                <FlexBox ml={2} height={"75%"} flexDirection="column" alignItems={"flex-start"}
-                         justifyContent={"space-between"}>
+                <CodeSpan  fontStyle="italic" fontSize={20} mt={-30}>Höhere Werte = bessere Leistung</CodeSpan>
+                <Grid gridTemplateColumns="1fr 1fr" gridGap={20}>
                     <Image width="650" src={"/images/android/100Cubes.png"}/>
+                    <Box>
+                        <Image width="500" src={"/images/100cubeTable.png"}/>
+                        <UnorderedList>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Beide Frameworks performant
+                                </Text>
+                            </ListItem>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    React Native zeigt Schwankungen
+                                </Text>
+                            </ListItem>
+                        </UnorderedList>
+                    </Box>
                     <Image width="650" src={"/images/web/100Cubes.png"}/>
-                </FlexBox>
+                </Grid>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">1000 Würfel</Heading>
                 </FlexBox>
-                <FlexBox ml={2} height={"75%"} flexDirection="column" alignItems={"flex-start"}
-                         justifyContent={"space-between"}>
+                <CodeSpan  fontStyle="italic" fontSize={20} mt={-30}>Höhere Werte = bessere Leistung</CodeSpan>
+                <Grid gridTemplateColumns="1fr 1fr" gridGap={20}>
                     <Image width="650" src={"/images/android/1000Cubes.png"}/>
+                    <Box>
+                        <Image width="500" src={"/images/1000cubeTable.png"}/>
+                        <UnorderedList>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Deutliche Perfomance Unterschiede
+                                </Text>
+                            </ListItem>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Leistung anders auf den Endgeräten
+                                </Text>
+                            </ListItem>
+                        </UnorderedList>
+                    </Box>
                     <Image width="650" src={"/images/web/1000Cubes.png"}/>
-                </FlexBox>
+                </Grid>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Speicher</Heading>
                 </FlexBox>
-                <FlexBox ml={2} height={"75%"} flexDirection="column" alignItems={"flex-start"}
-                         justifyContent={"space-between"}>
+                <CodeSpan  fontStyle="italic" fontSize={20} mt={-30}>Niedrigere Werte = bessere Leistung</CodeSpan>
+                <Grid gridTemplateColumns="1fr 1fr" gridGap={20}>
                     <Image width="650" src={"/images/android/Storage.png"}/>
+                    <Box>
+                        <Image width="500" src={"/images/StorageTable.png"}/>
+                        <UnorderedList>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Flutter deutlich schneller
+                                </Text>
+                            </ListItem>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Android langsamer als Web
+                                </Text>
+                            </ListItem>
+                        </UnorderedList>
+                    </Box>
                     <Image width="650" src={"/images/web/Storage.png"}/>
-                </FlexBox>
+                </Grid>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Sieb des Eratosthenes</Heading>
                 </FlexBox>
-                <FlexBox ml={2} height={"75%"} flexDirection="column" alignItems={"flex-start"}
-                         justifyContent={"space-between"}>
+                <CodeSpan  fontStyle="italic" fontSize={20} mt={-30}>Niedrigere Werte = bessere Leistung</CodeSpan>
+                <Grid gridTemplateColumns="1fr 1fr" gridGap={20}>
                     <Image width="650" src={"/images/android/Prime.png"}/>
+                    <Box>
+                        <Image width="500" src={"/images/PrimeTable.png"}/>
+                        <UnorderedList>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Flutter minimal performanter
+                                </Text>
+                            </ListItem>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Unterschiede zwischen Web und Android
+                                </Text>
+                            </ListItem>
+                        </UnorderedList>
+                    </Box>
                     <Image width="650" src={"/images/web/Prime.png"}/>
-                </FlexBox>
+                </Grid>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">State Management</Heading>
                 </FlexBox>
-                <FlexBox ml={2} height={"75%"} flexDirection="column" alignItems={"flex-start"}
-                         justifyContent={"space-between"}>
+                <CodeSpan  fontStyle="italic" fontSize={20} mt={-30}>Niedrigere Werte = bessere Leistung</CodeSpan>
+                <Grid gridTemplateColumns="1fr 1fr" gridGap={20}>
                     <Image width="650" src={"/images/android/State.png"}/>
+                    <Box>
+                        <Image width="500" src={"/images/StateTable.png"}/>
+                        <UnorderedList>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    Erhebliche Plattform Unterschiede
+                                </Text>
+                            </ListItem>
+                            <ListItem>
+                                <Text fontSize={28}>
+                                    React Native im Web perfomanter
+                                </Text>
+                            </ListItem>
+                        </UnorderedList>
+                    </Box>
                     <Image width="650" src={"/images/web/State.png"}/>
-                </FlexBox>
+                </Grid>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">

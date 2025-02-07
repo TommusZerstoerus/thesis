@@ -1,4 +1,4 @@
-import {CodePane, CodeSpan, FlexBox, Heading, ListItem, Slide, Text, UnorderedList} from "spectacle";
+import {CodePane, CodeSpan, FlexBox, Heading, Image, ListItem, Slide, Text, UnorderedList} from "spectacle";
 import React from "react";
 
 
@@ -26,12 +26,11 @@ export const Implementierung = () => {
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
-                    <Heading fontSize="h2">Würfel</Heading>
+                    <Heading fontSize="h2">Würfel React Native</Heading>
                 </FlexBox>
-                <Text>
+                <Text fontStyle="italic" >
                     Durchlauf mit 100 und 1000 Würfeln
                 </Text>
-                <CodeSpan>React Native</CodeSpan>
                 <CodePane stepIndex={0} language="javascript"
                           highlightRanges={[[5, 12], [14, 22], [29, 41], [43, 50], [52, 63], [80, 88], [91, 101], [102, 106]]}>
                     {`
@@ -253,22 +252,61 @@ class AnimatedCubeState extends State<AnimatedCube> {
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Speicher Benchmark</Heading>
                 </FlexBox>
-                <Text>Speichern einer großen Menge an Daten auf dem Endgerät</Text>
-                <Text>Messung der Geschwindkeit einer nativen Funktion</Text>
+                <UnorderedList>
+                    <ListItem>
+                        <Text>Speichern einer großen Menge an Daten auf dem Endgerät</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Messung der Geschwindkeit einer nativen Funktion</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Flutter - Shared Preferences</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>React - Async Storage</Text>
+                    </ListItem>
+                    <ListItem>
+                        <FlexBox justifyContent={"space-between"}>
+                            <Text>Alogrithmische Berechnung der Daten durch <CodeSpan>faker</CodeSpan></Text>
+                            <Image width={150} alt={"faker"} src={"/images/faker.png"}/>
+                        </FlexBox>
+                    </ListItem>
+                </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">Sieb des Eratosthenes Benchmark</Heading>
                 </FlexBox>
-                <Text>Berechnung Anzahl Primzahlen bis zur Zahl <CodeSpan>n</CodeSpan></Text>
-                <Text>Messung der Geschwindigkeit einer rechneninstensiven Aufgabe</Text>
+                <UnorderedList>
+                    <ListItem>
+                        <Text>Berechnung Anzahl Primzahlen bis zur Zahl <CodeSpan>n</CodeSpan></Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Messung der Geschwindigkeit einer rechneninstensiven Aufgabe</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Main Thread wird blockiert um Asynchronität zu vermeiden</Text>
+                    </ListItem>
+                </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
                 <FlexBox justifyContent="flexStart" width="100%">
                     <Heading fontSize="h2">State Management Benchmark</Heading>
                 </FlexBox>
-                <Text>Schnelles Wechseln des Zustandes</Text>
-                <Text>Testen einer elementaren Eigenschaft</Text>
+                <UnorderedList>
+                    <ListItem>
+                        <Text>Schnelles Wechseln des Zustandes</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Testen einer elementaren Eigenschaft</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Main Thread wird erneut blockiert</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Große Datenmenge im State gespeichert und angezeigt</Text>
+                    </ListItem>
+                </UnorderedList>
             </Slide>
         </>
     )

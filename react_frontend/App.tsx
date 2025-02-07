@@ -10,6 +10,7 @@ import {Form} from "./src/page/Form";
 import {View} from "react-native";
 import {Cube100} from "./src/page/Cube100";
 import {Cube1000} from "./src/page/Cube1000";
+import {FakerBenchmark} from "./src/page/Faker";
 
 const Drawer = createDrawerNavigator();
 
@@ -26,6 +27,7 @@ export default function App() {
                     <Drawer.Screen name={`Statemanagement ${stateManagementSize}`} component={StateManagement}/>
                 </Drawer.Group>
                 <Drawer.Screen name={"Form"} component={Form}/>
+                <Drawer.Screen name={"Faker"} component={FakerBenchmark}/>
             </Drawer.Navigator>
         </NavigationContainer>
     );

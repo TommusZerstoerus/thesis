@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_frontend/pages/faker.dart';
 import 'package:flutter_frontend/pages/form.dart';
 import 'package:flutter_frontend/pages/statemanagement.dart';
 import 'package:flutter_frontend/pages/storage.dart';
@@ -89,6 +90,16 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const FormScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Faker'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FakerBenchmarkScreen()),
                 );
               },
             )
