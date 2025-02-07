@@ -93,7 +93,7 @@ export const MethodenDerSoftwareentwicklung = () => {
                     </ListItem>
                     <UnorderedList>
                         <ListItem>
-                            <Text>Anuglar, React, Vue.js ...</Text>
+                            <Text>Angular, React, Vue.js ...</Text>
                         </ListItem>
                     </UnorderedList>
                     <ListItem>
