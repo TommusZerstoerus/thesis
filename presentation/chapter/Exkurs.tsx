@@ -24,9 +24,6 @@ export const Exkurs = () => {
                             <ListItem>
                                 Flutter Bloc
                             </ListItem>
-                            <ListItem>
-                                Auswahl anderer Bibliotheken
-                            </ListItem>
                         </UnorderedList>
                     </ListItem>
                 </UnorderedList>

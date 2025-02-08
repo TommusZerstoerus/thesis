@@ -22,6 +22,9 @@ export const Implementierung = () => {
                     <ListItem>
                         <Text>Android Emulator und Chromium Browser in einer VM</Text>
                     </ListItem>
+                    <ListItem>
+                        <Text>Mittelwerte aus 3 Durchläufen a 30 Versuche</Text>
+                    </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
@@ -260,10 +263,10 @@ class AnimatedCubeState extends State<AnimatedCube> {
                         <Text>Messung der Geschwindkeit einer nativen Funktion</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Flutter - Shared Preferences</Text>
+                        <Text>Flutter - Shared Preferences - Native Funktion</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>React - Async Storage</Text>
+                        <Text>React - Async Storage - SQLite Datenbank</Text>
                     </ListItem>
                     <ListItem>
                         <FlexBox justifyContent={"space-between"}>
@@ -295,13 +298,13 @@ class AnimatedCubeState extends State<AnimatedCube> {
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
+                        <Text>Main Thread wird erneut blockiert</Text>
+                    </ListItem>
+                    <ListItem>
                         <Text>Schnelles Wechseln des Zustandes</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Testen einer elementaren Eigenschaft</Text>
-                    </ListItem>
-                    <ListItem>
-                        <Text>Main Thread wird erneut blockiert</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Große Datenmenge im State gespeichert und angezeigt</Text>

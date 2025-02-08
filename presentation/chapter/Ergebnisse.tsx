@@ -199,6 +199,9 @@ export const Ergebnisse = () => {
                         <Text>Benchmarks messten bessere Werte bei Flutter</Text>
                     </ListItem>
                     <ListItem>
+                        <Text>Starke Unterschiede auf den Endgeräten bei React Native</Text>
+                    </ListItem>
+                    <ListItem>
                         <Text>Realitätsnahe Werte sorgen für kaum merkbare Unterschiede</Text>
                     </ListItem>
                 </UnorderedList>

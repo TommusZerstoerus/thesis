@@ -20,6 +20,11 @@ export const Fazit = () => {
                 </ListItem>
                 <ListItem>
                     <Text>
+                        Starke Differenz auf verschiedenen Endgeräten bei React Native
+                    </Text>
+                </ListItem>
+                <ListItem>
+                    <Text>
                         Stetige Weiterentwicklung oder Anpassung beeinflussen die Ergebnisse
                     </Text>
                 </ListItem>

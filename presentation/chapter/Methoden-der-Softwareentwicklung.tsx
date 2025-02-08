@@ -89,6 +89,9 @@ export const MethodenDerSoftwareentwicklung = () => {
                         <Text>HTML, CSS und JavaScript als Bausteine</Text>
                     </ListItem>
                     <ListItem>
+                        <Text>Flexible Nutzung durch den Browser auf nahzu allen Geräten</Text>
+                    </ListItem>
+                    <ListItem>
                         <Text>Zahlreiche Frameworks</Text>
                     </ListItem>
                     <UnorderedList>
@@ -96,9 +99,6 @@ export const MethodenDerSoftwareentwicklung = () => {
                             <Text>Angular, React, Vue.js ...</Text>
                         </ListItem>
                     </UnorderedList>
-                    <ListItem>
-                        <Text>Flexible Nutzung durch den Browser auf nahzu allen Geräten</Text>
-                    </ListItem>
                     <ListItem>
                         <Text>WebAssembly - Schnelle Ergänzung zu JavaScript </Text>
                     </ListItem>
