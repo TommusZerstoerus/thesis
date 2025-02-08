@@ -30,7 +30,7 @@ export const Fazit = () => {
                 </ListItem>
             </UnorderedList>
             <Appear>
-                <Box mt={100}>
+                <Box mt={40}>
                     <FlexBox justifyContent="center">
                         <Text fontStyle="italic" fontSize={40}>Vielen Dank für eure Aufmerksamkeit! 👋</Text>
                     </FlexBox>
