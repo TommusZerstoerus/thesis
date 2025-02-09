@@ -68,10 +68,7 @@ export const ReactNativeImDetail = () => {
                         <Text>JavaScript-Engine Hermes/JavaScriptCore</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Build Systeme für die jeweilige Zielplattform</Text>
-                    </ListItem>
-                    <ListItem>
-                        <Text>Ergänzung durch Libraries</Text>
+                        <Text>Ergänzung durch JavaScript Libraries</Text>
                     </ListItem>
                 </UnorderedList>
             </Slide>

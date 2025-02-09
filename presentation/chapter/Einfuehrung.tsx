@@ -48,6 +48,9 @@ export const Einfuehrung = () => {
                     <ListItem>
                         <Text>Leistung und Aufwand schwankt zwischen den Technologien</Text>
                     </ListItem>
+                    <ListItem>
+                        <Text>Fokus aufs Frontend</Text>
+                    </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide transition={transitionUp} backgroundColor="quaternary">

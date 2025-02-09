@@ -22,9 +22,6 @@ export const MethodenDerSoftwareentwicklung = () => {
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <Text>Unterteilung - Frontend und Backend</Text>
-                    </ListItem>
-                    <ListItem>
                         <Text>Codeebenen</Text>
                     </ListItem>
                     <UnorderedList>
@@ -72,7 +69,7 @@ export const MethodenDerSoftwareentwicklung = () => {
                     </ListItem>
                     <UnorderedList>
                         <ListItem>
-                            <Text>Java, Kotlin, Swift, Objective-C, C++, C# ...</Text>
+                            <Text>Java, Kotlin, Swift, C++, C# ...</Text>
                         </ListItem>
                     </UnorderedList>
                 </UnorderedList>
@@ -99,9 +96,6 @@ export const MethodenDerSoftwareentwicklung = () => {
                             <Text>Angular, React, Vue.js ...</Text>
                         </ListItem>
                     </UnorderedList>
-                    <ListItem>
-                        <Text>WebAssembly - Schnelle Ergänzung zu JavaScript </Text>
-                    </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">

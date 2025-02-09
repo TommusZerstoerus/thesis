@@ -23,7 +23,7 @@ export const Implementierung = () => {
                         <Text>Android Emulator und Chromium Browser in einer VM</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Mittelwerte aus 3 Durchläufen a 30 Versuche</Text>
+                        <Text>Mittelwerte aus 3 Durchläufen mit je 30 Versuche</Text>
                     </ListItem>
                 </UnorderedList>
             </Slide>
