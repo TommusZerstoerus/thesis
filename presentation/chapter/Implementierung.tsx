@@ -14,6 +14,9 @@ export const Implementierung = () => {
                         <Text>Expo zur Unterstützung bei React Native</Text>
                     </ListItem>
                     <ListItem>
+                        <Text>Out of the box</Text>
+                    </ListItem>
+                    <ListItem>
                         <Text>Nahezu identischer Quellcode</Text>
                     </ListItem>
                     <ListItem>
@@ -35,7 +38,7 @@ export const Implementierung = () => {
                     Durchlauf mit 100 und 1000 Würfeln
                 </Text>
                 <CodePane stepIndex={0} language="javascript"
-                          highlightRanges={[[5, 12], [14, 22], [29, 41], [43, 50], [52, 63], [80, 88], [91, 101], [102, 106]]}>
+                          highlightRanges={[[5, 12], [14, 22], [29, 41], [43, 50], [52, 63], [91, 101], [102, 106]]}>
                     {`
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;

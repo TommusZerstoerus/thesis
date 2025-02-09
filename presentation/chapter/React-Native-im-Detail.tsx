@@ -65,7 +65,7 @@ export const ReactNativeImDetail = () => {
                         <Text>Asynchrone Kommunikation</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>JavaScript-Engine Hermes/JavaScriptCore</Text>
+                        <Text>Interpretation durch JavaScript-Engine Hermes/JavaScriptCore</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Ergänzung durch JavaScript Libraries</Text>

@@ -59,10 +59,10 @@ export const MethodenDerSoftwareentwicklung = () => {
                         <Text>Abgestimmt auf das Endgerät</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Direkter Zugriff auf Eigenschaften und Funktion des Gerätes</Text>
+                        <Text>Android, iOS, Desktop ...</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Android, iOS, Desktop ...</Text>
+                        <Text>Direkter Zugriff auf Eigenschaften und Funktion des Gerätes</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Diverse mögliche Sprachen zur Umsetzung</Text>
@@ -80,10 +80,10 @@ export const MethodenDerSoftwareentwicklung = () => {
                 </FlexBox>
                 <UnorderedList>
                     <ListItem>
-                        <Text>Kompilierung durch den Browser</Text>
+                        <Text>HTML, CSS und JavaScript als Bausteine</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>HTML, CSS und JavaScript als Bausteine</Text>
+                        <Text>Kompilierung durch den Browser</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Flexible Nutzung durch den Browser auf nahzu allen Geräten</Text>
@@ -103,9 +103,6 @@ export const MethodenDerSoftwareentwicklung = () => {
                     <Heading fontSize="h2">Cross-Plattform Entwicklung</Heading>
                 </FlexBox>
                 <UnorderedList>
-                    <ListItem>
-                        <Text>Flutter und React Native als beliebte Frameworks</Text>
-                    </ListItem>
                     <ListItem>
                         <Text>Geteilte Code Basis für diverse Endgeräte</Text>
                     </ListItem>

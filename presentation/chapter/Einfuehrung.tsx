@@ -59,11 +59,8 @@ export const Einfuehrung = () => {
                 </FlexBox>
                 <UnorderedList>
                     <FlexBox>
-                        <Image width="500" src="/images/statista.png" alt="Statista Anzeige Cross Platform Frameworks"/>
+                        <Image width="640" src="/images/statista.png" alt="Statista Anzeige Cross Platform Frameworks"/>
                     </FlexBox>
-                    <ListItem>
-                        <Text>Ein Code - Viele Endgeräte</Text>
-                    </ListItem>
                     <FlexBox width="100%" justifyContent="space-between">
                         <Image width="200"
                                src="https://storage.googleapis.com/cms-storage-bucket/847ae81f5430402216fd.svg"
