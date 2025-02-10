@@ -271,12 +271,6 @@ class AnimatedCubeState extends State<AnimatedCube> {
                     <ListItem>
                         <Text>React - Async Storage - SQLite Datenbank</Text>
                     </ListItem>
-                    <ListItem>
-                        <FlexBox justifyContent={"space-between"}>
-                            <Text>Alogrithmische Berechnung der Daten durch <CodeSpan>faker</CodeSpan></Text>
-                            <Image width={150} alt={"faker"} src={"/images/faker.png"}/>
-                        </FlexBox>
-                    </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide backgroundColor="quaternary">
@@ -304,10 +298,10 @@ class AnimatedCubeState extends State<AnimatedCube> {
                         <Text>Main Thread wird erneut blockiert</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Schnelles Wechseln des Zustandes</Text>
+                        <Text>Testen einer elementaren Eigenschaft</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Testen einer elementaren Eigenschaft</Text>
+                        <Text>Schnelles Wechseln des Zustandes</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Große Datenmenge im State gespeichert und angezeigt</Text>

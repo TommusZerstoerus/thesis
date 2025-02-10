@@ -49,11 +49,11 @@ export const ReactNativeImDetail = () => {
                         <Text>Verwendung von JavaScript/TypeScript</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Kompilierung durch die Bridge in die nativen Elemente</Text>
+                        <Text>Interpretation und danach Übersetzung durch die Bridge ins Native</Text>
                     </ListItem>
-                    <FlexBox>
-                        <Image width="500" src="/images/reactnative-bridge.png"></Image>
-                    </FlexBox>
+                    <ListItem>
+                        <Text>Nutzung von JavaScript-Engine Hermes/JavaScriptCore</Text>
+                    </ListItem>
                 </UnorderedList>
             </Slide>
             <Slide transition={transitionUp} backgroundColor="quaternary">
@@ -65,11 +65,11 @@ export const ReactNativeImDetail = () => {
                         <Text>Asynchrone Kommunikation</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Interpretation durch JavaScript-Engine Hermes/JavaScriptCore</Text>
-                    </ListItem>
-                    <ListItem>
                         <Text>Ergänzung durch JavaScript Libraries</Text>
                     </ListItem>
+                    <FlexBox>
+                        <Image width="700" src="/images/reactnative-bridge.png"></Image>
+                    </FlexBox>
                 </UnorderedList>
             </Slide>
         </>

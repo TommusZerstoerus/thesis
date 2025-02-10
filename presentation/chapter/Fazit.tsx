@@ -10,11 +10,6 @@ export const Fazit = () => {
             <UnorderedList>
                 <ListItem>
                     <Text>
-                        Viele Aspekte beeinflussen die Wahl (Design, Kenntnisse, usw.)
-                    </Text>
-                </ListItem>
-                <ListItem>
-                    <Text>
                         Im Leistungsbereich überzeugt Flutter
                     </Text>
                 </ListItem>
@@ -30,7 +25,7 @@ export const Fazit = () => {
                 </ListItem>
             </UnorderedList>
             <Appear>
-                <Box mt={40}>
+                <Box mt={100}>
                     <FlexBox justifyContent="center">
                         <Text fontStyle="italic" fontSize={40}>Vielen Dank für eure Aufmerksamkeit! 👋</Text>
                     </FlexBox>

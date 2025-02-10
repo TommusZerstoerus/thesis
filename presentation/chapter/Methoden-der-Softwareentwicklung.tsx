@@ -62,7 +62,10 @@ export const MethodenDerSoftwareentwicklung = () => {
                         <Text>Android, iOS, Desktop ...</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Direkter Zugriff auf Eigenschaften und Funktion des Gerätes</Text>
+                        <Text>Zugriff auf Eigenschaften und Funktion des Gerätes</Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text>Direkte Übersetzung in Maschinencode oder durch Zwischensprache</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Diverse mögliche Sprachen zur Umsetzung</Text>
@@ -122,11 +125,10 @@ export const MethodenDerSoftwareentwicklung = () => {
                         </TableRow>
                         <TableRow>
                             <TableCell>Wiederverwendbarkeit</TableCell>
-                            <TableCell>Potentielle Einbußen der Leistung</TableCell>
+                            <TableCell>Potentielles Einbußen der Leistung</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell>Leichtere Instandhaltung</TableCell>
-                            <TableCell>Geringes Expertenwissen</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

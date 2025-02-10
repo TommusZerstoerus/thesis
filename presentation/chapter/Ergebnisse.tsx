@@ -162,7 +162,7 @@ export const Ergebnisse = () => {
                                 <Text>Flutter weist eine geringere Abweichung auf</Text>
                             </ListItem>
                             <ListItem>
-                                <Text>Kompilierung mögliche Ursache</Text>
+                                <Text>Übersetzung mögliche Ursache - Bridge</Text>
                             </ListItem>
                         </UnorderedList>
                     </Box>
@@ -182,7 +182,7 @@ export const Ergebnisse = () => {
                                 <Text>Geringe Abweichungen</Text>
                             </ListItem>
                             <ListItem>
-                                <Text>Flutter oft mit besserer Leistung</Text>
+                                <Text>Flutter mit besserer Leistung</Text>
                             </ListItem>
                         </UnorderedList>
                     </Box>

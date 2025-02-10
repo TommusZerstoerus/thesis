@@ -19,10 +19,10 @@ export const FlutterImDetail = () => {
                         <Text>Widgets als Bausteine</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Direkte Kompilierung zur Zielsprache</Text>
+                        <Text>Direkte Kompilierung zur Zielsprache - Dart2Native in der Dart VM</Text>
                     </ListItem>
                     <ListItem>
-                        <Text>Rendering Engine - Skia</Text>
+                        <Text>Eigene Darstellung mit Rendering Engine - Skia</Text>
                     </ListItem>
                     <ListItem>
                         <Text>Method Channel dient zur Kommunikation</Text>
